@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>COEP Tech Laser Lab · 3D Augmented Reality Explorer</title>
+  <meta name="description" content="Augmented Reality and 3D exploded view explorer for the Nd:YAG 4-Axis Gantry and Fiber Laser Apparatus.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0b111e;
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: rgba(19, 29, 49, 0.95);
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #233554;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: #06b6d4;
+    }
+    .title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: white;
+    }
+    .back-btn {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-family: 'Fira Code', monospace;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #233554;
+      border-radius: 4px;
+    }
+    .ar-view-container {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    canvas {
+      width: 100%;
+      max-width: 800px;
+      height: 480px;
+      background: radial-gradient(circle at center, #1e293b 0%, #090e17 100%);
+      border-radius: 12px;
+      border: 1px solid #233554;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .controls-bar {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #131d31;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #233554;
+    }
+    .btn {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .btn.sec {
+      background: #1e293b;
+      border: 1px solid #233554;
+      color: #f1f5f9;
+    }
+    .slider-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="brand">COEP TECHNOLOGICAL UNIVERSITY · LASER LAB</div>
+      <div class="title">3D Augmented Reality Apparatus Viewport</div>
+    </div>
+    <a href="index.html" class="back-btn">← Web Brochure</a>
+  </header>
+
+  <div class="ar-view-container">
+    <canvas id="arCanvas"></canvas>
+
+    <div class="controls-bar">
+      <button class="btn sec" id="toggleAppBtn" onclick="toggleApp()">Switch: Fiber Laser</button>
+      <div class="slider-wrap">
+        <label>Explode View:</label>
+        <input type="range" id="expSlider" min="0" max="100" value="30" oninput="updateExp(this.value)" style="accent-color: #ef4444;">
+        <span id="expText">30%</span>
+      </div>
+      <button class="btn" onclick="launchAR()">Start WebXR Session</button>
+    </div>
+  </div>
+
+  <script>
+    let appMode = 'ndyag';
+    let expVal = 30;
+    const canvas = document.getElementById('arCanvas');
+    const ctx = canvas.getContext('2d');
+    let rot = 0;
+
+    function resize() {
+      canvas.width = canvas.clientWidth * window.devicePixelRatio;
+      canvas.height = canvas.clientHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+    window.addEventListener('resize', resize);
+
+    function toggleApp() {
+      appMode = appMode === 'ndyag' ? 'fiber' : 'ndyag';
+      document.getElementById('toggleAppBtn').innerText = appMode === 'ndyag' 
+        ? "Switch: Fiber Laser" 
+        : "Switch: Nd:YAG Gantry";
+    }
+
+    function updateExp(v) {
+      expVal = parseInt(v);
+      document.getElementById('expText').innerText = v + '%';
+    }
+
+    function launchAR() {
+      alert("Opening WebXR Camera Session...\nEnsure flat workshop table lighting.");
+    }
+
+    function render() {
+      const w = canvas.width / window.devicePixelRatio;
+      const h = canvas.height / window.devicePixelRatio;
+      ctx.clearRect(0, 0, w, h);
+
+      rot += 0.005;
+
+      ctx.save();
+      ctx.translate(w / 2, h / 2 + 20);
+
+      // Simple rotating preview
+      ctx.fillStyle = '#334155';
+      ctx.fillRect(-120, 60, 240, 25); // base
+
+      // Gantry uprights
+      const offset = expVal * 0.8;
+      ctx.fillStyle = '#1e293b';
+      ctx.fillRect(-90, -30 - offset * 0.4, 25, 90);
+      ctx.fillRect(65, -30 - offset * 0.4, 25, 90);
+      ctx.fillStyle = '#475569';
+      ctx.fillRect(-95, -45 - offset * 0.5, 190, 20);
+
+      // Resonator
+      ctx.fillStyle = appMode === 'ndyag' ? '#1e3a8a' : '#0891b2';
+      ctx.fillRect(-60, -85 - offset, 120, 35);
+      ctx.fillStyle = 'white';
+      ctx.font = '10px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(appMode === 'ndyag' ? "Nd:YAG RESONATOR" : "FIBER SCAN HEAD", 0, -65 - offset);
+
+      // Beam
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(0, -50 - offset);
+      ctx.lineTo(0, 60);
+      ctx.stroke();
+
+      // Spark
+      ctx.fillStyle = '#f59e0b';
+      ctx.beginPath();
+      ctx.arc(0, 60, 6 + Math.sin(Date.now() * 0.02) * 2, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+      requestAnimationFrame(render);
+    }
+
+    window.onload = () => {
+      resize();
+      render();
+    };
+  </script>
+</body>
+</html>

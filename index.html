@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>COEP Tech Laser Lab · 3D Interactive Equipment Brochure & Simulator</title>
+  <meta name="description" content="Interactive 3D equipment brochure and engineering process simulator for the Laser Processing & Advanced Manufacturing Laboratory, COEP Technological University, Pune.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b111e;
+      --bg-card: #131d31;
+      --bg-card-hover: #1c2b47;
+      --border: #233554;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-red: #ef4444;
+      --accent-red-glow: rgba(239, 68, 68, 0.35);
+      --accent-cyan: #06b6d4;
+      --accent-cyan-glow: rgba(6, 182, 212, 0.3);
+      --accent-orange: #f97316;
+      --accent-green: #10b981;
+      --font-mono: 'Fira Code', monospace;
+      --font-sans: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Technical Banner */
+    header {
+      background: rgba(11, 17, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .main-heading {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tag-pulse {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      box-shadow: 0 0 10px var(--accent-red);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    /* Navigation Tabs */
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      color: var(--text-main);
+      border-color: var(--accent-cyan);
+    }
+
+    .nav-btn.active {
+      background: var(--accent-red);
+      color: white;
+      border-color: var(--accent-red);
+      box-shadow: 0 0 14px var(--accent-red-glow);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 3D Equipment Explorer */
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      .equipment-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    .viewer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      position: relative;
+    }
+
+    .viewer-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .selector-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .selector-btn {
+      background: #1e293b;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .selector-btn.active {
+      background: var(--accent-cyan);
+      color: #000;
+      border-color: var(--accent-cyan);
+    }
+
+    .slider-group {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .slider-group input[type="range"] {
+      accent-color: var(--accent-red);
+      cursor: pointer;
+      width: 140px;
+    }
+
+    /* 3D Canvas Container */
+    .canvas-container {
+      width: 100%;
+      height: 480px;
+      background: radial-gradient(circle at center, #1e293b 0%, #090e17 100%);
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .canvas-overlay-info {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      background: rgba(11, 17, 30, 0.75);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      pointer-events: none;
+    }
+
+    /* Component Details Panel */
+    .components-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      max-height: 540px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .component-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .component-item:hover, .component-item.active {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-red);
+      transform: translateX(4px);
+    }
+
+    .comp-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .badge-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      color: white;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .comp-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      padding-left: 1.9rem;
+    }
+
+    /* Specs Comparison Table */
+    .specs-table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow-x: auto;
+      padding: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      font-family: var(--font-mono);
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .tag-ndyag {
+      color: var(--accent-orange);
+      font-weight: 700;
+    }
+
+    .tag-fiber {
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    /* Simulator Section */
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .sim-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .sim-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .sim-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-title span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-red);
+      background: rgba(239, 68, 68, 0.15);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .control-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .control-row label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .control-row input[type="range"] {
+      width: 140px;
+      accent-color: var(--accent-cyan);
+    }
+
+    .control-val {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      min-width: 70px;
+      text-align: right;
+    }
+
+    .calc-output-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .calc-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .calc-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .calc-val {
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-green);
+      margin-top: 0.2rem;
+    }
+
+    /* Research Projects Grid */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .res-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      transition: all 0.2s ease;
+    }
+
+    .res-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .res-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-red);
+      font-weight: 600;
+    }
+
+    .res-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .res-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .res-stats {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent-cyan);
+      margin-top: auto;
+    }
+
+    /* AR Modal / Instructions */
+    .ar-hero {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%), var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .ar-btn {
+      background: var(--accent-red);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+      box-shadow: 0 4px 15px var(--accent-red-glow);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(11, 17, 30, 0.95);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      margin-top: 3rem;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Banner -->
+  <header>
+    <div class="header-container">
+      <div>
+        <div class="brand-title">COEP Technological University · Department of Mechanical Engineering</div>
+        <div class="main-heading">
+          <span class="tag-pulse"></span>
+          Laser Processing & Advanced Manufacturing Lab
+        </div>
+      </div>
+      <nav>
+        <button class="nav-btn active" onclick="switchTab('explorer')">3D Equipment</button>
+        <button class="nav-btn" onclick="switchTab('specs')">Specs Matrix</button>
+        <button class="nav-btn" onclick="switchTab('simulators')">Process Simulators</button>
+        <button class="nav-btn" onclick="switchTab('research')">Research Projects</button>
+        <button class="nav-btn" onclick="switchTab('ar-mode')">AR / Room View</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main>
+
+    <!-- TAB 1: 3D EQUIPMENT EXPLORER -->
+    <section id="explorer" class="tab-content active">
+      <div class="equipment-grid">
+        <!-- 3D Canvas Card -->
+        <div class="viewer-card">
+          <div class="viewer-controls">
+            <div class="selector-group">
+              <button id="btn-ndyag" class="selector-btn active" onclick="selectApparatus('ndyag')">Nd:YAG 4-Axis Gantry</button>
+              <button id="btn-fiber" class="selector-btn" onclick="selectApparatus('fiber')">Fiber Laser System</button>
+            </div>
+            <div class="slider-group">
+              <label for="explodeSlider">Explode Assembly:</label>
+              <input type="range" id="explodeSlider" min="0" max="100" value="0" oninput="updateExplosion(this.value)">
+              <span id="explodeVal">0%</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:0.5rem; margin-bottom:0.5rem;">
+            <button id="view3dBtn" class="selector-btn active" onclick="setViewMode('3d')">Interactive 3D Exploded View</button>
+            <button id="viewCadBtn" class="selector-btn" onclick="setViewMode('cad')">Photorealistic CAD Visual</button>
+          </div>
+          <div class="canvas-container" id="canvasWrap">
+            <canvas id="laserCanvas"></canvas>
+            <div id="canvasInfo" class="canvas-overlay-info">
+              SYSTEM: Nd:YAG PULSED (1064 nm) · DRAG TO ROTATE · SCROLL TO ZOOM
+            </div>
+          </div>
+          <div id="cadWrap" style="display:none; width:100%; height:480px; background:#090e17; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); text-align:center;">
+            <img id="cadImg" src="annotated_ndyag_render.jpg" style="height:100%; max-width:100%; object-fit:contain;" alt="CAD render">
+          </div>
+        </div>
+
+        <!-- Component Callouts List -->
+        <div class="viewer-card">
+          <h3 id="panelTitle" style="font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem;">
+            Nd:YAG Subsystem Architecture
+          </h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Click any component below to isolate and highlight in the 3D model:
+          </p>
+          <div id="componentsContainer" class="components-list">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: SPECS MATRIX -->
+    <section id="specs" class="tab-content">
+      <div class="specs-table-container">
+        <h2 style="font-size: 1.3rem; margin-bottom: 1rem; color: #fff;">
+          Apparatus Specifications & Direct Engineering Comparison
+        </h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Performance Parameter</th>
+              <th>1. Nd:YAG Pulse Laser + 4-Axis Gantry</th>
+              <th>2. Industrial Fiber Laser Apparatus</th>
+              <th>Industrial Advantage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Wavelength (λ)</strong></td>
+              <td class="tag-ndyag">1064 nm (Near-Infrared Solid-State)</td>
+              <td class="tag-fiber">1070 nm (Yb-Doped Active Fiber Core)</td>
+              <td>Near-infrared window with high absorption in steels, superalloys & titanium</td>
+            </tr>
+            <tr>
+              <td><strong>Beam Quality (M²)</strong></td>
+              <td>M² ≈ 2.2 – 2.5 (Multi-mode resonator)</td>
+              <td class="tag-fiber">M² &lt; 1.10 (Diffraction-limited TEM₀₀)</td>
+              <td>Fiber laser focuses down to ultra-tight 15 µm spot for extreme fluence</td>
+            </tr>
+            <tr>
+              <td><strong>Output Mode & Peak Power</strong></td>
+              <td class="tag-ndyag">Pulsed (10 kW Peak · 25–50 J Energy)</td>
+              <td>CW (1000 W) / Quasi-CW (2000 W Peak)</td>
+              <td>Nd:YAG delivers massive peak power bursts ideal for percussion micro-drilling</td>
+            </tr>
+            <tr>
+              <td><strong>Pulse Width</strong></td>
+              <td class="tag-ndyag">0.2 ms – 20 ms / 20 ns Q-switched</td>
+              <td>CW or modulated up to 50 kHz</td>
+              <td>Nanosecond pulses vaporize substrate with minimal heat-affected zone (HAZ)</td>
+            </tr>
+            <tr>
+              <td><strong>Electrical Wall-Plug Efficiency</strong></td>
+              <td>2.5% – 3.0% (Flashlamp/Chiller load)</td>
+              <td class="tag-fiber">&gt; 38% Wall-Plug Efficiency</td>
+              <td>Fiber laser slashes power consumption by over 90%</td>
+            </tr>
+            <tr>
+              <td><strong>Motion System & Kinematics</strong></td>
+              <td class="tag-ndyag">4-Axis CNC Gantry + 360° Rotary A-Chuck</td>
+              <td>Dual-Axis High-Speed Galvo Scanner</td>
+              <td>Gantry handles large complex 3D parts; Galvo achieves 8,000 mm/s vectoring</td>
+            </tr>
+            <tr>
+              <td><strong>Positioning Resolution</strong></td>
+              <td>±5.0 µm positioning · ±2.0 µm repeatability</td>
+              <td class="tag-fiber">±0.5 µm optical angular resolution</td>
+              <td>Sub-micron resolution for micro-scale surface texturing & battery welding</td>
+            </tr>
+            <tr>
+              <td><strong>Assist Gas Delivery</strong></td>
+              <td>Coaxial supersonic Laval nozzle (O₂, N₂, Ar &lt; 15 bar)</td>
+              <td>Coaxial shield or cross-jet air knife</td>
+              <td>Supersonic assist gas expels molten recast dross without slag buildup</td>
+            </tr>
+            <tr>
+              <td><strong>Primary Lab Application</strong></td>
+              <td>Aerospace effusion hole micro-drilling & stent cutting</td>
+              <td>Superhydrophobic biomaterial texturing & Cu-Al welding</td>
+              <td>Complementary capabilities covering full spectrum of advanced micro-machining</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 3: PROCESS SIMULATORS -->
+    <section id="simulators" class="tab-content">
+      <div class="sim-grid">
+        <!-- Simulator 1: Micro-Drilling Calculator -->
+        <div class="sim-card">
+          <div class="sim-title">
+            Laser Micro-Drilling Calculator
+            <span>Nd:YAG PULSED</span>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted);">
+            Calculate ablation depth, hole aspect ratio, and recast layer for aerospace superalloys:
+          </p>
+
+          <div class="control-row">
+            <label>Workpiece Material:</label>
+            <select id="matSelect" onchange="runDrillSim()" style="background: #1e293b; color: white; border: 1px solid var(--border); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+              <option value="inconel">Inconel 718 (Aerospace Superalloy)</option>
+              <option value="ti64">Ti-6Al-4V (Titanium Alloy)</option>
+              <option value="ss316">Stainless Steel 316L</option>
+              <option value="copper">Pure Copper (High Reflectivity)</option>
+            </select>
+          </div>
+
+          <div class="control-row">
+            <label>Pulse Energy (J):</label>
+            <input type="range" id="pulseEnergy" min="5" max="40" value="20" oninput="runDrillSim()">
+            <span id="energyVal" class="control-val">20 J</span>
+          </div>
+
+          <div class="control-row">
+            <label>Pulse Duration (ms):</label>
+            <input type="range" id="pulseWidth" min="0.2" max="5.0" step="0.1" value="1.5" oninput="runDrillSim()">
+            <span id="widthVal" class="control-val">1.5 ms</span>
+          </div>
+
+          <div class="control-row">
+            <label>Number of Pulses:</label>
+            <input type="range" id="pulseCount" min="1" max="30" value="12" oninput="runDrillSim()">
+            <span id="countVal" class="control-val">12</span>
+          </div>
+
+          <div class="calc-output-box">
+            <div class="calc-item">
+              <span class="calc-label">TOTAL HOLE DEPTH:</span>
+              <span id="resHoleDepth" class="calc-val">2.84 mm</span>
+            </div>
+            <div class="calc-item">
+              <span class="calc-label">ASPECT RATIO:</span>
+              <span id="resAspectRatio" class="calc-val">18.9 : 1</span>
+            </div>
+            <div class="calc-item">
+              <span class="calc-label">EST. RECAST LAYER:</span>
+              <span id="resRecast" class="calc-val" style="color: var(--accent-orange);">&lt; 11 µm</span>
+            </div>
+            <div class="calc-item">
+              <span class="calc-label">PEAK POWER DENSITY:</span>
+              <span id="resFluence" class="calc-val">1.33 × 10⁶ W/cm²</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator 2: Cutting Speed & Kerf Width -->
+        <div class="sim-card">
+          <div class="sim-title">
+            Laser Cutting & Kerf Width Estimator
+            <span>FIBER LASER</span>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted);">
+            Predict kerf width and maximum cutting speed based on laser power and assist gas:
+          </p>
+
+          <div class="control-row">
+            <label>Laser Power (Watts):</label>
+            <input type="range" id="laserPower" min="200" max="1500" step="50" value="800" oninput="runCutSim()">
+            <span id="powerVal" class="control-val">800 W</span>
+          </div>
+
+          <div class="control-row">
+            <label>Sheet Thickness (mm):</label>
+            <input type="range" id="sheetThick" min="0.5" max="6.0" step="0.5" value="2.0" oninput="runCutSim()">
+            <span id="thickVal" class="control-val">2.0 mm</span>
+          </div>
+
+          <div class="control-row">
+            <label>Assist Gas Type & Pressure:</label>
+            <select id="gasSelect" onchange="runCutSim()" style="background: #1e293b; color: white; border: 1px solid var(--border); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem;">
+              <option value="n2">Nitrogen (N₂) · 14 bar (Clean Cut)</option>
+              <option value="o2">Oxygen (O₂) · 4 bar (Exothermic)</option>
+              <option value="ar">Argon (Ar) · 12 bar (Inert)</option>
+            </select>
+          </div>
+
+          <div class="control-row">
+            <label>Cutting Speed (mm/s):</label>
+            <input type="range" id="cutSpeed" min="5" max="120" value="35" oninput="runCutSim()">
+            <span id="speedVal" class="control-val">35 mm/s</span>
+          </div>
+
+          <div class="calc-output-box">
+            <div class="calc-item">
+              <span class="calc-label">EST. KERF WIDTH:</span>
+              <span id="resKerf" class="calc-val">142 µm</span>
+            </div>
+            <div class="calc-item">
+              <span class="calc-label">HEAT INPUT PER LENGTH:</span>
+              <span id="resHeatInput" class="calc-val">22.8 J/mm</span>
+            </div>
+            <div class="calc-item">
+              <span class="calc-label">MAX CUTTING SPEED:</span>
+              <span id="resMaxSpeed" class="calc-val" style="color: var(--accent-cyan);">58 mm/s</span>
+            </div>
+            <div class="calc-item">
+              <span class="calc-label">CUT STATUS:</span>
+              <span id="resCutStatus" class="calc-val" style="color: var(--accent-green);">OPTIMAL SEVER</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: RESEARCH PROJECTS -->
+    <section id="research" class="tab-content">
+      <div class="research-grid">
+        <div class="res-card">
+          <div class="res-tag">AEROSPACE DRILLING · Nd:YAG 4-AXIS GANTRY</div>
+          <div class="res-title">Effusion Cooling Holes in Inconel 718 Blades</div>
+          <div class="res-text">
+            Percussion micro-drilling of angled 25° film-cooling holes in single-crystal superalloys. Gantry positions curved aerofoils with ±2 µm accuracy while high-pressure N₂ gas suppresses recast layer under 12 µm.
+          </div>
+          <div class="res-stats">Recast &lt; 12 µm · Aspect Ratio &gt; 20:1 · Zero Microcracks</div>
+        </div>
+
+        <div class="res-card">
+          <div class="res-tag">BIOMATERIAL TEXTURING · FIBER LASER</div>
+          <div class="res-title">Superhydrophobic Patterning for Implants</div>
+          <div class="res-text">
+            Galvo surface texturing of Ti-6Al-4V orthopedic implants with micro-dimple arrays. Creates a Cassie-Baxter state with contact angle &gt; 154°, repelling Staphylococcus aureus bacteria by 85%.
+          </div>
+          <div class="res-stats">Water Contact Angle 154° · Galvo 2,500 mm/s · 85% Anti-Bacterial</div>
+        </div>
+
+        <div class="res-card">
+          <div class="res-tag">E-MOBILITY & BATTERY · FIBER LASER</div>
+          <div class="res-title">Spatter-Free Copper-to-Aluminum Welding</div>
+          <div class="res-text">
+            Spatial 400 Hz beam wobbling suppresses brittle intermetallic CuAl₂ phases when welding EV battery busbars. Joint failure shear loads exceed 850 N with electrical resistance under 12 µΩ.
+          </div>
+          <div class="res-stats">Wobble 400 Hz · Joint Load &gt; 850 N · Intermetallic &lt; 4 µm</div>
+        </div>
+
+        <div class="res-card">
+          <div class="res-tag">COMPUTATIONAL OPTICS · BEAM DIAGNOSTICS</div>
+          <div class="res-title">In-Situ Wavefront Sensing & Thermal Bloom Correction</div>
+          <div class="res-text">
+            Shack-Hartmann sensor profiling high-fluence pulses in real time, dynamically compensating thermal lensing in focusing objectives via closed-loop motorized beam expansion telescope.
+          </div>
+          <div class="res-stats">Defocus Corrected in 35 ms · Drift Reduced from 1.8mm to 0.08mm</div>
+        </div>
+
+        <div class="res-card">
+          <div class="res-tag">PROCESS HYDRODYNAMICS · MULTIPHYSICS CFD</div>
+          <div class="res-title">Supersonic Assist-Gas Dynamics & Melt Ejection</div>
+          <div class="res-text">
+            OpenFOAM compressible CFD simulation and Schlieren optical imaging of convergent-divergent Laval nozzles, matching Mach 2.2 shock diamonds to the kerf entry for burr-free titanium cuts.
+          </div>
+          <div class="res-stats">Mach 2.2 Core · Gas Shear +38% · Zero Bottom Dross</div>
+        </div>
+
+        <div class="res-card">
+          <div class="res-tag">ACADEMICS & CURRICULUM · FINAL-YEAR TA</div>
+          <div class="res-title">Laser Machining Lab & Safety Certification Course</div>
+          <div class="res-text">
+            Undergraduate and postgraduate students learn laser-material interaction, CNC G-code pulse synchronization, optical alignment, and Class 4 laser safety standards through hands-on operation.
+          </div>
+          <div class="res-stats">Hands-on G-Code PSO · Class 4 Safety · Industry Sponsored</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: AR / ROOM VIEW -->
+    <section id="ar-mode" class="tab-content">
+      <div class="ar-hero">
+        <h2 style="font-size: 1.8rem; margin-bottom: 0.8rem; color: #fff;">
+          Augmented Reality · Place the Laser in Your Room
+        </h2>
+        <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 650px; margin: 0 auto;">
+          Experience the 1:1 scale apparatus on any smartphone table or floor surface. Inspect beam paths, gantry axes, and isolate internal optical components.
+        </p>
+        <button class="ar-btn" onclick="alert('Launching WebXR AR Session for Nd:YAG 4-Axis Gantry...\nPoint your phone camera at a flat surface.')">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Launch AR Session (WebXR / QuickLook)
+        </button>
+        <div style="margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan);">
+          Compatible with Android (ARCore / Scene Viewer) & iOS 12+ (AR Quick Look)
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div style="margin-bottom: 0.4rem;">
+      LASER PROCESSING & ADVANCED MANUFACTURING LABORATORY · COEP TECHNOLOGICAL UNIVERSITY, PUNE
+    </div>
+    <div>
+      Document Ref: <span style="color: var(--accent-cyan);">DRG. NO. LASER-001</span> · Interactive Web Brochure & Engineering Simulator
+    </div>
+  </footer>
+
+  <!-- Interactive 3D & Simulator Logic -->
+  <script>
+    // Tab switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+      if (tabId === 'explorer') {
+        drawCanvas();
+      }
+    }
+
+    // Apparatus selection & components database
+    let currentApparatus = 'ndyag';
+    let explodePercent = 0;
+
+    const componentsDB = {
+      ndyag: [
+        { id: 1, name: "Resonator & Nd:YAG Crystal Rod", desc: "Flashlamp-pumped laser cavity emitting 1064 nm near-infrared coherent pulses." },
+        { id: 2, name: "Q-Switch & Polarizer Assembly", desc: "Electro-optic Pockels cell gating high-energy nanosecond pulses (>10 kW peak power)." },
+        { id: 3, name: "Beam Expanding Telescope (BET)", desc: "Variable 2x-8x optical telescope reducing beam divergence to under 1.2 mrad." },
+        { id: 4, name: "Dielectric Turning Mirrors", desc: "High-damage-threshold HR steering mirrors (reflectivity > 99.9% at 1064 nm)." },
+        { id: 5, name: "Assist Gas Cutting Head & Nozzle", desc: "Coaxial supersonic gas nozzle with capacitive auto-gap height tracking sensor." },
+        { id: 6, name: "4-Axis CNC Gantry & Rotary Chuck", desc: "Granite base, precision ballscrew X/Y/Z motion and 360° A-axis rotary indexing." },
+        { id: 7, name: "Closed-Loop DI Water Chiller", desc: "Refrigerated water-to-water chiller maintaining cavity temperature to ±0.5 °C." },
+        { id: 8, name: "CNC Controller & Laser Enclosure", desc: "Class 4 safety enclosure with OD7+ viewport and G-code synchronized pulse gating." }
+      ],
+      fiber: [
+        { id: 1, name: "Yb-Doped Active Fiber Core", desc: "High-power double-clad active fiber pumped by 976 nm laser diode modules." },
+        { id: 2, name: "Armored QBH Delivery Cable", desc: "Heavy-duty armored optical conduit with clad mode stripping and break monitor." },
+        { id: 3, name: "Collimator & Debris Window", desc: "High-purity fused silica collimating optics with quick-change protective windows." },
+        { id: 4, name: "Dual-Galvo Scan Head", desc: "High-speed digital encoder galvanometer mirrors for rapid vector scanning." },
+        { id: 5, name: "Telecentric F-Theta Lens", desc: "Flat-field objective maintaining perpendicular focal spot across 160 mm field." },
+        { id: 6, name: "Honeycomb Table & Translation Bed", desc: "Vibration-isolated vacuum hold-down bed with fume catchment drawer." },
+        { id: 7, name: "Multi-Stage HEPA Fume Extractor", desc: "Dual HEPA and activated carbon filter capturing sub-micron metallic particles." },
+        { id: 8, name: "Central Control Rack & Power Supply", desc: "Digital fieldbus interface supporting high-speed PWM power modulation." }
+      ]
+    };
+
+    function setViewMode(mode) {
+      document.getElementById('view3dBtn').classList.toggle('active', mode === '3d');
+      document.getElementById('viewCadBtn').classList.toggle('active', mode === 'cad');
+      document.getElementById('canvasWrap').style.display = mode === '3d' ? 'block' : 'none';
+      document.getElementById('cadWrap').style.display = mode === 'cad' ? 'block' : 'none';
+      if (mode === 'cad') {
+        document.getElementById('cadImg').src = currentApparatus === 'ndyag' ? 'annotated_ndyag_render.jpg' : 'annotated_fiber_render.jpg';
+      }
+    }
+
+    function selectApparatus(app) {
+      if (document.getElementById('cadWrap').style.display === 'block') {
+        document.getElementById('cadImg').src = app === 'ndyag' ? 'annotated_ndyag_render.jpg' : 'annotated_fiber_render.jpg';
+      }
+      currentApparatus = app;
+      document.getElementById('btn-ndyag').classList.toggle('active', app === 'ndyag');
+      document.getElementById('btn-fiber').classList.toggle('active', app === 'fiber');
+      document.getElementById('panelTitle').innerText = app === 'ndyag' 
+        ? "Nd:YAG Subsystem Architecture" 
+        : "Fiber Laser Subsystem Architecture";
+      document.getElementById('canvasInfo').innerText = app === 'ndyag'
+        ? "SYSTEM: Nd:YAG PULSED (1064 nm) · DRAG TO ROTATE · SCROLL TO ZOOM"
+        : "SYSTEM: HIGH-POWER FIBER LASER (1070 nm) · DRAG TO ROTATE · SCROLL TO ZOOM";
+      populateComponents();
+      drawCanvas();
+    }
+
+    function populateComponents() {
+      const container = document.getElementById('componentsContainer');
+      container.innerHTML = '';
+      componentsDB[currentApparatus].forEach(c => {
+        const item = document.createElement('div');
+        item.className = 'component-item';
+        item.innerHTML = `
+          <div class="comp-header">
+            <span class="badge-number">${c.id}</span>
+            <span>${c.name}</span>
+          </div>
+          <div class="comp-desc">${c.desc}</div>
+        `;
+        item.onclick = () => {
+          document.querySelectorAll('.component-item').forEach(el => el.classList.remove('active'));
+          item.classList.add('active');
+          highlightPart(c.id);
+        };
+        container.appendChild(item);
+      });
+    }
+
+    function updateExplosion(val) {
+      explodePercent = parseInt(val);
+      document.getElementById('explodeVal').innerText = val + '%';
+      drawCanvas();
+    }
+
+    let highlightedPartId = null;
+    function highlightPart(id) {
+      highlightedPartId = id;
+      drawCanvas();
+    }
+
+    // Interactive 3D Canvas Rendering (Custom Perspective Canvas Engine)
+    const canvas = document.getElementById('laserCanvas');
+    const ctx = canvas.getContext('2d');
+    let rotY = -0.4;
+    let rotX = 0.35;
+    let isDragging = false;
+    let lastMouseX = 0, lastMouseY = 0;
+
+    function resizeCanvas() {
+      canvas.width = canvas.parentElement.clientWidth * window.devicePixelRatio;
+      canvas.height = canvas.parentElement.clientHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      drawCanvas();
+    }
+    window.addEventListener('resize', resizeCanvas);
+
+    canvas.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      lastMouseX = e.clientX;
+      lastMouseY = e.clientY;
+    });
+
+    window.addEventListener('mouseup', () => isDragging = false);
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const dx = e.clientX - lastMouseX;
+      const dy = e.clientY - lastMouseY;
+      rotY += dx * 0.008;
+      rotX += dy * 0.008;
+      rotX = Math.max(-0.8, Math.min(0.8, rotX));
+      lastMouseX = e.clientX;
+      lastMouseY = e.clientY;
+      drawCanvas();
+    });
+
+    function drawCanvas() {
+      const w = canvas.width / window.devicePixelRatio;
+      const h = canvas.height / window.devicePixelRatio;
+      ctx.clearRect(0, 0, w, h);
+
+      // Grid background
+      ctx.strokeStyle = "rgba(35, 53, 84, 0.4)";
+      ctx.lineWidth = 1;
+      const gridSize = 40;
+      for (let x = 0; x < w; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0); ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y); ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      ctx.save();
+      ctx.translate(w / 2, h / 2 + 30);
+
+      // 3D Projection math
+      const exp = explodePercent * 0.9;
+
+      if (currentApparatus === 'ndyag') {
+        // Draw 4-Axis Gantry + Nd:YAG
+        drawBox(0, 80, 0, 260, 25, 180, '#334155', '#475569'); // Granite Bed
+        drawBox(0, 60, 0, 180, 15, 120, '#64748b', '#94a3b8'); // X/Y Worktable
+
+        // Rotary chuck (Part 6)
+        drawBox(40, 45, 0, 45, 20, 20, '#f97316', '#fb923c', highlightedPartId === 6);
+
+        // Gantry Uprights & Crossbeam (Part 5)
+        const gantryOffset = exp * 0.5;
+        drawBox(-90, 10 - gantryOffset, 0, 25, 120, 30, '#1e293b', '#3b82f6', highlightedPartId === 5);
+        drawBox(90, 10 - gantryOffset, 0, 25, 120, 30, '#1e293b', '#3b82f6', highlightedPartId === 5);
+        drawBox(0, -50 - gantryOffset, 0, 210, 25, 35, '#334155', '#60a5fa', highlightedPartId === 5);
+
+        // Resonator Cavity on top (Part 1, 2, 3, 4)
+        const resOffset = exp * 1.2;
+        drawBox(0, -90 - resOffset, 0, 160, 35, 40, '#1e3a8a', '#3b82f6', highlightedPartId === 1 || highlightedPartId === 2);
+
+        // Cutting Head & Nozzle (Part 5)
+        const headOffset = exp * 0.8;
+        drawBox(0, -10 - headOffset, 0, 30, 50, 30, '#cbd5e1', '#ef4444', highlightedPartId === 5);
+
+        // Red Laser Beam
+        ctx.strokeStyle = '#ef4444';
+        ctx.lineWidth = 3;
+        ctx.shadowColor = '#ef4444';
+        ctx.shadowBlur = 12;
+        const p1 = project3D(0, 15 - headOffset, 0);
+        const p2 = project3D(0, 50, 0);
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+      } else {
+        // Draw Fiber Laser System (Rack + Galvo Head + Table)
+        drawBox(-110, 0, 0, 70, 160, 70, '#1e293b', '#06b6d4', highlightedPartId === 1 || highlightedPartId === 8); // Rack
+        drawBox(60, 70, 0, 160, 20, 130, '#475569', '#94a3b8', highlightedPartId === 6); // Honeycomb Bed
+
+        // Galvo Scan Head (Part 4 & 5)
+        const galvoOffset = exp * 1.0;
+        drawBox(60, -30 - galvoOffset, 0, 50, 60, 50, '#0f172a', '#06b6d4', highlightedPartId === 4 || highlightedPartId === 5);
+
+        // Yellow Armored Delivery Cable (Part 2)
+        ctx.strokeStyle = '#eab308';
+        ctx.lineWidth = 4;
+        const c1 = project3D(-80, -40, 0);
+        const c2 = project3D(35, -50 - galvoOffset, 0);
+        ctx.beginPath();
+        ctx.moveTo(c1.x, c1.y);
+        ctx.bezierCurveTo(c1.x + 40, c1.y - 40, c2.x - 40, c2.y - 30, c2.x, c2.y);
+        ctx.stroke();
+
+        // Laser Beam Cone (1070 nm)
+        ctx.fillStyle = 'rgba(239, 68, 68, 0.4)';
+        ctx.strokeStyle = '#ef4444';
+        ctx.lineWidth = 1.5;
+        const topB = project3D(60, 0 - galvoOffset, 0);
+        const bL = project3D(40, 60, 0);
+        const bR = project3D(80, 60, 0);
+        ctx.beginPath();
+        ctx.moveTo(topB.x, topB.y);
+        ctx.lineTo(bL.x, bL.y);
+        ctx.lineTo(bR.x, bR.y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      ctx.restore();
+    }
+
+    function project3D(x, y, z) {
+      // Rotation around Y
+      let x1 = x * Math.cos(rotY) + z * Math.sin(rotY);
+      let z1 = -x * Math.sin(rotY) + z * Math.cos(rotY);
+      // Rotation around X
+      let y2 = y * Math.cos(rotX) - z1 * Math.sin(rotX);
+      let z2 = y * Math.sin(rotX) + z1 * Math.cos(rotX);
+      // Perspective
+      const fov = 450;
+      const scale = fov / (fov + z2 + 200);
+      return { x: x1 * scale, y: y2 * scale };
+    }
+
+    function drawBox(cx, cy, cz, w, h, d, faceColor, edgeColor, isLit = false) {
+      const hw = w / 2, hh = h / 2, hd = d / 2;
+      const vertices = [
+        [-hw, -hh, -hd], [hw, -hh, -hd], [hw, hh, -hd], [-hw, hh, -hd],
+        [-hw, -hh, hd], [hw, -hh, hd], [hw, hh, hd], [-hw, hh, hd]
+      ];
+      const pts = vertices.map(v => project3D(cx + v[0], cy + v[1], cz + v[2]));
+
+      const faces = [
+        [0, 1, 2, 3], // Front
+        [5, 4, 7, 6], // Back
+        [4, 0, 3, 7], // Left
+        [1, 5, 6, 2], // Right
+        [4, 5, 1, 0], // Top
+        [3, 2, 6, 7]  // Bottom
+      ];
+
+      ctx.fillStyle = isLit ? '#ef4444' : faceColor;
+      ctx.strokeStyle = isLit ? '#ffffff' : edgeColor;
+      ctx.lineWidth = isLit ? 2.5 : 1.2;
+
+      faces.forEach(f => {
+        ctx.beginPath();
+        ctx.moveTo(pts[f[0]].x, pts[f[0]].y);
+        for (let i = 1; i < f.length; i++) {
+          ctx.lineTo(pts[f[i]].x, pts[f[i]].y);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      });
+    }
+
+    // --- SIMULATOR 1 CALCULATOR ---
+    function runDrillSim() {
+      const energy = parseFloat(document.getElementById('pulseEnergy').value);
+      const width = parseFloat(document.getElementById('pulseWidth').value);
+      const count = parseInt(document.getElementById('pulseCount').value);
+      const mat = document.getElementById('matSelect').value;
+
+      document.getElementById('energyVal').innerText = energy + ' J';
+      document.getElementById('widthVal').innerText = width + ' ms';
+      document.getElementById('countVal').innerText = count;
+
+      let abRate = 0.22; // mm per pulse
+      let recastFactor = 1.0;
+      if (mat === 'ti64') { abRate = 0.28; recastFactor = 0.85; }
+      else if (mat === 'ss316') { abRate = 0.25; recastFactor = 1.1; }
+      else if (mat === 'copper') { abRate = 0.12; recastFactor = 1.4; }
+
+      const depth = (energy / 20) * abRate * count;
+      const diameter = 0.15; // mm
+      const aspect = depth / diameter;
+      const recast = (8 + width * 2.5) * recastFactor;
+      const fluence = (energy / (Math.PI * Math.pow(diameter / 2, 2) * (width * 1e-3)));
+
+      document.getElementById('resHoleDepth').innerText = depth.toFixed(2) + ' mm';
+      document.getElementById('resAspectRatio').innerText = aspect.toFixed(1) + ' : 1';
+      document.getElementById('resRecast').innerText = '< ' + recast.toFixed(1) + ' µm';
+      document.getElementById('resFluence').innerText = (fluence / 1e4).toExponential(2) + ' W/cm²';
+    }
+
+    // --- SIMULATOR 2 CALCULATOR ---
+    function runCutSim() {
+      const power = parseFloat(document.getElementById('laserPower').value);
+      const thick = parseFloat(document.getElementById('sheetThick').value);
+      const speed = parseFloat(document.getElementById('cutSpeed').value);
+      const gas = document.getElementById('gasSelect').value;
+
+      document.getElementById('powerVal').innerText = power + ' W';
+      document.getElementById('thickVal').innerText = thick.toFixed(1) + ' mm';
+      document.getElementById('speedVal').innerText = speed + ' mm/s';
+
+      let gasMult = gas === 'o2' ? 1.4 : (gas === 'n2' ? 1.0 : 0.85);
+      const maxSpeed = (power / (thick * 10)) * gasMult;
+      const heatInput = power / speed; // J/mm
+      const kerf = 80 + (thick * 25) + (power / 50);
+
+      document.getElementById('resMaxSpeed').innerText = maxSpeed.toFixed(0) + ' mm/s';
+      document.getElementById('resHeatInput').innerText = heatInput.toFixed(1) + ' J/mm';
+      document.getElementById('resKerf').innerText = kerf.toFixed(0) + ' µm';
+
+      const statusEl = document.getElementById('resCutStatus');
+      if (speed <= maxSpeed) {
+        statusEl.innerText = "OPTIMAL SEVER";
+        statusEl.style.color = "var(--accent-green)";
+      } else {
+        statusEl.innerText = "INCOMPLETE CUT";
+        statusEl.style.color = "var(--accent-red)";
+      }
+    }
+
+    // Initialize
+    window.onload = () => {
+      populateComponents();
+      resizeCanvas();
+      runDrillSim();
+      runCutSim();
+    };
+  </script>
+</body>
+</html>

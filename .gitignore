@@ -1,0 +1,12 @@
+﻿__pycache__/
+*.pyc
+v2_*
+v3_*
+v4_*
+v5_*
+v6_*
+v7*
+ref_*
+test_*
+extract*
+thumb_*

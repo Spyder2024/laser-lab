@@ -212,6 +212,29 @@
       min-width: 42px;
       text-align: right;
     }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 0.85rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+      .brand { font-size: 0.68rem; }
+      .title { font-size: 1.05rem; }
+      .back-btn { padding: 0.4rem 0.8rem; font-size: 0.74rem; }
+      .ar-view-container { padding: 0.75rem; }
+      .canvas-card { height: 360px; }
+      .controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.85rem;
+        gap: 0.75rem;
+      }
+      .btn { width: 100%; text-align: center; }
+      .slider-wrap { width: 100%; justify-content: space-between; }
+      .slider-wrap input[type="range"] { flex: 1; margin: 0 0.5rem; }
+    }
   </style>
 </head>
 <body>

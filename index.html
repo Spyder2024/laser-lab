@@ -16,7 +16,6 @@
   <script src="three.min.js"></script>
   <script src="OrbitControls.js"></script>
   <script>
-    // Robust CDN fallback if local scripts are missing or running in different environment
     if (typeof THREE === 'undefined') {
       document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');
       document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"><\/script>');
@@ -50,6 +49,7 @@
       --shadow-cad-lg: 5px 6px 0px rgba(27, 42, 68, 0.2);
       --font-mono: 'Fira Code', Consolas, 'SF Mono', monospace;
       --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --viewport-height: 520px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -80,6 +80,7 @@
       background: var(--bg-drafting);
       position: relative;
       box-shadow: 0 10px 30px rgba(27, 42, 68, 0.12);
+      transition: all 0.2s ease;
     }
 
     /* Technical Corner Ticks */
@@ -98,19 +99,68 @@
       pointer-events: none;
     }
 
-    /* Top Coordinate Strip matching PDF */
+    /* Top Coordinate Strip & Student Device Viewport Switcher */
     .coord-strip {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       background: #E0D9C7;
       border-bottom: 1.5px solid var(--border-navy);
-      padding: 2px 1rem;
+      padding: 3px 1rem;
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: var(--ink-slate);
-      letter-spacing: 2px;
       user-select: none;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .coord-zones {
+      display: flex;
+      gap: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    /* Device Switcher Controls (Laptop vs Mobile Mode) */
+    .device-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-left: auto;
+    }
+
+    .device-switcher-label {
+      font-size: 0.68rem;
+      color: var(--ink-navy);
+      font-weight: 800;
+      margin-right: 0.2rem;
+    }
+
+    .device-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--border-navy);
+      color: var(--ink-navy);
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .device-btn:hover {
+      background: #FAF8F0;
+    }
+
+    .device-btn.active {
+      background: var(--ink-navy);
+      color: #FFFFFF;
+      border-color: var(--ink-navy);
     }
 
     /* Header Banner */
@@ -203,6 +253,7 @@
       padding: 0.5rem 1.5rem;
       overflow-x: auto;
       scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
     }
 
     .nav-btn {
@@ -218,6 +269,9 @@
       transition: all 0.15s ease;
       white-space: nowrap;
       box-shadow: 2px 2px 0px rgba(27, 42, 68, 0.12);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
     .nav-btn:hover {
@@ -231,6 +285,10 @@
       color: #FFFFFF;
       border-color: var(--ink-navy);
       box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-mobile-text {
+      display: none;
     }
 
     /* Main Content Area */
@@ -391,16 +449,17 @@
       color: #FFFFFF;
     }
 
-    /* 3D Canvas Viewport - CRISP WHITE EQUIPMENT BACKGROUND AS REQUESTED */
+    /* 3D Canvas Viewport - CRISP WHITE EQUIPMENT BACKGROUND */
     .canvas-container {
       width: 100%;
-      height: 520px;
+      height: var(--viewport-height);
       background: var(--card-white);
       border: 2px solid var(--border-navy);
       border-radius: 4px;
       position: relative;
       overflow: hidden;
       box-shadow: inset 0 0 20px rgba(27, 42, 68, 0.05);
+      touch-action: none;
     }
 
     #threeCanvas {
@@ -412,6 +471,22 @@
 
     #threeCanvas:active {
       cursor: grabbing;
+    }
+
+    /* Mobile Touch Gesture Hint Overlay */
+    .mobile-touch-hint {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+      background: rgba(27, 42, 68, 0.85);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 3px;
+      pointer-events: none;
+      z-index: 10;
+      display: none;
     }
 
     /* Engineering Overlay Header on Viewport */
@@ -501,7 +576,7 @@
     #cadWrap {
       display: none;
       width: 100%;
-      height: 520px;
+      height: var(--viewport-height);
       background: #FFFFFF;
       border: 2px solid var(--border-navy);
       border-radius: 4px;
@@ -556,6 +631,7 @@
       overflow-y: auto;
       padding-right: 0.35rem;
       scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
     }
 
     .component-item {
@@ -633,6 +709,7 @@
       overflow-x: auto;
       padding: 1.5rem;
       box-shadow: var(--shadow-cad);
+      -webkit-overflow-scrolling: touch;
     }
 
     .section-title-wrap {
@@ -660,6 +737,31 @@
       background: rgba(209, 63, 41, 0.1);
       border: 1px dashed var(--accent-red);
       padding: 0.25rem 0.6rem;
+    }
+
+    /* Mobile Specs Column Filter */
+    .mobile-specs-filter {
+      display: none;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .specs-filter-btn {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-navy);
+      color: var(--ink-navy);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.35rem 0.7rem;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .specs-filter-btn.active {
+      background: var(--ink-navy);
+      color: #FFFFFF;
     }
 
     table {
@@ -989,14 +1091,303 @@
       text-decoration: underline;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .blueprint-frame { margin: 0.5rem auto; width: calc(100% - 1rem); }
-      header { padding: 1rem; }
-      main { padding: 1rem; }
-      .canvas-container { height: 380px; }
-      .header-container { flex-direction: column; align-items: flex-start; }
-      .calc-output-box { grid-template-columns: 1fr; }
+    /* ==========================================================================
+       RESPONSIVE ADAPTATION FOR MOBILE (Screens <= 840px OR forced mobile)
+       ========================================================================== */
+    @media (max-width: 840px) {
+      body:not(.force-desktop-view) :root,
+      body:not(.force-desktop-view) {
+        --viewport-height: 360px;
+      }
+
+      body:not(.force-desktop-view) .blueprint-frame {
+        margin: 0 !important;
+        width: 100% !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-top: none !important;
+        box-shadow: none !important;
+      }
+
+      body:not(.force-desktop-view) .blueprint-frame::before {
+        display: none !important;
+      }
+
+      body:not(.force-desktop-view) .coord-zones {
+        display: none !important;
+      }
+
+      body:not(.force-desktop-view) .coord-strip {
+        padding: 4px 0.75rem !important;
+        justify-content: flex-end !important;
+      }
+
+      body:not(.force-desktop-view) header {
+        padding: 0.85rem 1rem !important;
+      }
+
+      body:not(.force-desktop-view) .header-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.65rem !important;
+      }
+
+      body:not(.force-desktop-view) .brand-title {
+        font-size: 0.68rem !important;
+        letter-spacing: 0.8px !important;
+        line-height: 1.3 !important;
+      }
+
+      body:not(.force-desktop-view) .main-heading {
+        font-size: 1.12rem !important;
+        line-height: 1.3 !important;
+      }
+
+      body:not(.force-desktop-view) .doc-badges {
+        gap: 0.35rem !important;
+      }
+
+      body:not(.force-desktop-view) .doc-badge {
+        font-size: 0.65rem !important;
+        padding: 0.15rem 0.45rem !important;
+      }
+
+      body:not(.force-desktop-view) nav {
+        padding: 0.4rem 0.65rem !important;
+        gap: 0.3rem !important;
+      }
+
+      body:not(.force-desktop-view) .nav-btn {
+        padding: 0.45rem 0.7rem !important;
+        font-size: 0.75rem !important;
+      }
+
+      body:not(.force-desktop-view) .nav-text {
+        display: none !important;
+      }
+
+      body:not(.force-desktop-view) .nav-mobile-text {
+        display: inline !important;
+      }
+
+      body:not(.force-desktop-view) main {
+        padding: 0.75rem !important;
+      }
+
+      /* Explorer Section on Mobile */
+      body:not(.force-desktop-view) .equipment-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+
+      body:not(.force-desktop-view) .viewer-card {
+        padding: 0.75rem !important;
+        gap: 0.75rem !important;
+      }
+
+      body:not(.force-desktop-view) .viewer-controls-bar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 0.65rem !important;
+        gap: 0.65rem !important;
+      }
+
+      body:not(.force-desktop-view) .selector-group {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        width: 100% !important;
+        gap: 0.35rem !important;
+      }
+
+      body:not(.force-desktop-view) .selector-btn {
+        padding: 0.45rem 0.4rem !important;
+        font-size: 0.74rem !important;
+        text-align: center !important;
+      }
+
+      body:not(.force-desktop-view) .explode-slider-wrap {
+        width: 100% !important;
+        justify-content: space-between !important;
+        padding: 0.45rem 0.65rem !important;
+      }
+
+      body:not(.force-desktop-view) .explode-slider-wrap input[type="range"] {
+        flex: 1 !important;
+        margin: 0 0.5rem !important;
+      }
+
+      body:not(.force-desktop-view) .canvas-container {
+        height: 360px !important;
+      }
+
+      body:not(.force-desktop-view) #cadWrap {
+        height: 360px !important;
+      }
+
+      body:not(.force-desktop-view) .mobile-touch-hint {
+        display: block !important;
+      }
+
+      body:not(.force-desktop-view) .view-toolbar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.45rem !important;
+      }
+
+      body:not(.force-desktop-view) .preset-btn-group {
+        overflow-x: auto !important;
+        padding-bottom: 3px !important;
+        -webkit-overflow-scrolling: touch;
+        width: 100% !important;
+      }
+
+      body:not(.force-desktop-view) .tool-btn {
+        padding: 0.35rem 0.55rem !important;
+        font-size: 0.72rem !important;
+        white-space: nowrap !important;
+      }
+
+      body:not(.force-desktop-view) .components-sidebar {
+        padding: 0.75rem !important;
+      }
+
+      body:not(.force-desktop-view) .components-list {
+        max-height: 360px !important;
+      }
+
+      body:not(.force-desktop-view) .component-item {
+        padding: 0.6rem 0.7rem !important;
+      }
+
+      body:not(.force-desktop-view) .comp-header {
+        font-size: 0.82rem !important;
+      }
+
+      body:not(.force-desktop-view) .comp-desc {
+        font-size: 0.74rem !important;
+        padding-left: 1.85rem !important;
+      }
+
+      /* Specs Table on Mobile */
+      body:not(.force-desktop-view) .specs-table-container {
+        padding: 0.75rem !important;
+      }
+
+      body:not(.force-desktop-view) .mobile-specs-filter {
+        display: flex !important;
+      }
+
+      body:not(.force-desktop-view) table {
+        font-size: 0.78rem !important;
+      }
+
+      body:not(.force-desktop-view) th,
+      body:not(.force-desktop-view) td {
+        padding: 0.55rem 0.65rem !important;
+      }
+
+      /* Simulators on Mobile */
+      body:not(.force-desktop-view) .sim-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+
+      body:not(.force-desktop-view) .sim-card {
+        padding: 1rem !important;
+        gap: 0.85rem !important;
+      }
+
+      body:not(.force-desktop-view) .control-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.3rem !important;
+      }
+
+      body:not(.force-desktop-view) .control-row-wrap {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+      }
+
+      body:not(.force-desktop-view) .control-row select {
+        width: 100% !important;
+      }
+
+      body:not(.force-desktop-view) .control-row input[type="range"] {
+        width: 100% !important;
+        height: 8px !important;
+      }
+
+      body:not(.force-desktop-view) .calc-output-box {
+        grid-template-columns: 1fr 1fr !important;
+        padding: 0.75rem !important;
+        gap: 0.65rem !important;
+      }
+
+      body:not(.force-desktop-view) .calc-val {
+        font-size: 1.1rem !important;
+      }
+
+      /* Research on Mobile */
+      body:not(.force-desktop-view) .research-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+
+      body:not(.force-desktop-view) .res-card {
+        padding: 1rem !important;
+      }
+    }
+
+    /* Force Mobile View (applied when user explicitly clicks "Mobile View" button) */
+    body.force-mobile-view {
+      --viewport-height: 360px;
+    }
+    body.force-mobile-view .blueprint-frame {
+      margin: 0 !important;
+      width: 100% !important;
+      border-left: none !important;
+      border-right: none !important;
+      border-top: none !important;
+      box-shadow: none !important;
+    }
+    body.force-mobile-view .blueprint-frame::before { display: none !important; }
+    body.force-mobile-view .coord-zones { display: none !important; }
+    body.force-mobile-view .coord-strip { padding: 4px 0.75rem !important; justify-content: flex-end !important; }
+    body.force-mobile-view header { padding: 0.85rem 1rem !important; }
+    body.force-mobile-view .header-container { flex-direction: column !important; align-items: flex-start !important; gap: 0.65rem !important; }
+    body.force-mobile-view .brand-title { font-size: 0.68rem !important; }
+    body.force-mobile-view .main-heading { font-size: 1.12rem !important; }
+    body.force-mobile-view .doc-badges { gap: 0.35rem !important; }
+    body.force-mobile-view .doc-badge { font-size: 0.65rem !important; padding: 0.15rem 0.45rem !important; }
+    body.force-mobile-view nav { padding: 0.4rem 0.65rem !important; gap: 0.3rem !important; }
+    body.force-mobile-view .nav-btn { padding: 0.45rem 0.7rem !important; font-size: 0.75rem !important; }
+    body.force-mobile-view .nav-text { display: none !important; }
+    body.force-mobile-view .nav-mobile-text { display: inline !important; }
+    body.force-mobile-view main { padding: 0.75rem !important; }
+    body.force-mobile-view .equipment-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+    body.force-mobile-view .viewer-card { padding: 0.75rem !important; }
+    body.force-mobile-view .viewer-controls-bar { flex-direction: column !important; align-items: stretch !important; padding: 0.65rem !important; }
+    body.force-mobile-view .selector-group { display: grid !important; grid-template-columns: 1fr 1fr !important; width: 100% !important; }
+    body.force-mobile-view .selector-btn { padding: 0.45rem 0.4rem !important; font-size: 0.74rem !important; text-align: center !important; }
+    body.force-mobile-view .explode-slider-wrap { width: 100% !important; justify-content: space-between !important; }
+    body.force-mobile-view .explode-slider-wrap input[type="range"] { flex: 1 !important; margin: 0 0.5rem !important; }
+    body.force-mobile-view .canvas-container { height: 360px !important; }
+    body.force-mobile-view #cadWrap { height: 360px !important; }
+    body.force-mobile-view .mobile-touch-hint { display: block !important; }
+    body.force-mobile-view .view-toolbar { flex-direction: column !important; align-items: stretch !important; }
+    body.force-mobile-view .preset-btn-group { overflow-x: auto !important; width: 100% !important; }
+    body.force-mobile-view .components-list { max-height: 360px !important; }
+    body.force-mobile-view .mobile-specs-filter { display: flex !important; }
+    body.force-mobile-view .sim-grid { grid-template-columns: 1fr !important; }
+    body.force-mobile-view .control-row { flex-direction: column !important; align-items: stretch !important; gap: 0.3rem !important; }
+    body.force-mobile-view .control-row select { width: 100% !important; }
+    body.force-mobile-view .control-row input[type="range"] { width: 100% !important; }
+    body.force-mobile-view .research-grid { grid-template-columns: 1fr !important; }
+
+    /* Force Desktop View (applied when student clicks "Laptop View") */
+    body.force-desktop-view {
+      --viewport-height: 520px;
     }
   </style>
 </head>
@@ -1004,16 +1395,26 @@
 
   <div class="blueprint-frame">
 
-    <!-- Technical Coordinate Strip 1 to 8 matching PDF -->
+    <!-- Top Coordinate Strip & Student Device Viewport Switcher -->
     <div class="coord-strip">
-      <span>ZONE 1</span>
-      <span>ZONE 2</span>
-      <span>ZONE 3</span>
-      <span>ZONE 4</span>
-      <span>ZONE 5</span>
-      <span>ZONE 6</span>
-      <span>ZONE 7</span>
-      <span>ZONE 8</span>
+      <div class="coord-zones">
+        <span>ZONE 1</span>
+        <span>ZONE 2</span>
+        <span>ZONE 3</span>
+        <span>ZONE 4</span>
+        <span>ZONE 5</span>
+        <span>ZONE 6</span>
+        <span>ZONE 7</span>
+        <span>ZONE 8</span>
+      </div>
+
+      <!-- Device View Switcher Toggle -->
+      <div class="device-switcher">
+        <span class="device-switcher-label">STUDENT VIEW:</span>
+        <button id="btnViewAuto" class="device-btn active" onclick="setDeviceView('auto')" title="Automatically adapt to screen">⚡ Auto</button>
+        <button id="btnViewLaptop" class="device-btn" onclick="setDeviceView('laptop')" title="Switch to wide laptop CAD layout">💻 Laptop</button>
+        <button id="btnViewMobile" class="device-btn" onclick="setDeviceView('mobile')" title="Switch to touch-friendly mobile layout">📱 Mobile</button>
+      </div>
     </div>
 
     <!-- Header Banner -->
@@ -1035,13 +1436,33 @@
       </div>
     </header>
 
-    <!-- Navigation Tabs -->
+    <!-- Navigation Tabs (With responsive icons + short mobile labels) -->
     <nav>
-      <button class="nav-btn active" onclick="switchTab('explorer', this)">[ 1. 3D EXPLODED APPARATUS ]</button>
-      <button class="nav-btn" onclick="switchTab('specs', this)">[ 2. BENCHMARK MATRIX ]</button>
-      <button class="nav-btn" onclick="switchTab('simulators', this)">[ 3. PROCESS SIMULATORS ]</button>
-      <button class="nav-btn" onclick="switchTab('research', this)">[ 4. RESEARCH EXPERIMENTS ]</button>
-      <button class="nav-btn" onclick="switchTab('ar-mode', this)">[ 5. AR / ROOM VIEWPORT ]</button>
+      <button class="nav-btn active" onclick="switchTab('explorer', this)">
+        <span>🔬</span>
+        <span class="nav-text">[ 1. 3D EXPLODED APPARATUS ]</span>
+        <span class="nav-mobile-text">3D Models</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('specs', this)">
+        <span>📊</span>
+        <span class="nav-text">[ 2. BENCHMARK MATRIX ]</span>
+        <span class="nav-mobile-text">Specs</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('simulators', this)">
+        <span>⚡</span>
+        <span class="nav-text">[ 3. PROCESS SIMULATORS ]</span>
+        <span class="nav-mobile-text">Simulators</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('research', this)">
+        <span>📑</span>
+        <span class="nav-text">[ 4. RESEARCH EXPERIMENTS ]</span>
+        <span class="nav-mobile-text">Research</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('ar-mode', this)">
+        <span>📱</span>
+        <span class="nav-text">[ 5. AR / ROOM VIEWPORT ]</span>
+        <span class="nav-mobile-text">AR View</span>
+      </button>
     </nav>
 
     <!-- Main Container -->
@@ -1075,7 +1496,7 @@
 
             <!-- View Modes & Camera Angle Presets -->
             <div class="view-toolbar">
-              <div style="display:flex; gap:0.35rem;">
+              <div style="display:flex; gap:0.35rem; flex-wrap:wrap;">
                 <button id="view3dBtn" class="tool-btn active" onclick="setViewMode('3d')">3D Exploded Engine</button>
                 <button id="viewCadBtn" class="tool-btn" onclick="setViewMode('cad')">Orthographic Blueprint Sheet</button>
               </div>
@@ -1099,8 +1520,13 @@
               <div id="canvasInfo" class="viewport-overlay-header">
                 <div>SYSTEM: <span id="overlaySystemName">Nd:YAG PULSED (1064 nm)</span></div>
                 <div style="font-size:0.68rem; color:var(--ink-slate); margin-top:2px;">
-                  LEFT-CLICK + DRAG: ROTATE · RIGHT-CLICK: PAN · SCROLL: ZOOM · CLICK PART TO INSPECT
+                  DRAG: ROTATE · SCROLL / PINCH: ZOOM · TAP PART TO INSPECT
                 </div>
+              </div>
+
+              <!-- Mobile Touch Helper -->
+              <div class="mobile-touch-hint">
+                👆 1-finger orbit · Pinch zoom
               </div>
 
               <!-- Legend Overlay -->
@@ -1139,68 +1565,76 @@
             <span class="section-stamp">COEP METROLOGY STANDARDS VERIFIED</span>
           </div>
 
-          <table>
+          <!-- Mobile Quick Column Filter -->
+          <div class="mobile-specs-filter">
+            <span style="font-family:var(--font-mono); font-size:0.75rem; font-weight:700; align-self:center;">SHOW:</span>
+            <button id="filterBoth" class="specs-filter-btn active" onclick="filterSpecsTable('both')">Both Systems</button>
+            <button id="filterNdyag" class="specs-filter-btn" onclick="filterSpecsTable('ndyag')">Nd:YAG Only</button>
+            <button id="filterFiber" class="specs-filter-btn" onclick="filterSpecsTable('fiber')">Fiber Laser Only</button>
+          </div>
+
+          <table id="specsTable">
             <thead>
               <tr>
                 <th style="width: 22%;">Performance Parameter</th>
-                <th style="width: 28%;">1. Nd:YAG Pulsed Laser + 4-Axis Gantry</th>
-                <th style="width: 28%;">2. Industrial Fiber Laser Apparatus</th>
+                <th class="col-ndyag" style="width: 28%;">1. Nd:YAG Pulsed Laser + 4-Axis Gantry</th>
+                <th class="col-fiber" style="width: 28%;">2. Industrial Fiber Laser Apparatus</th>
                 <th style="width: 22%;">Industrial Advantage & Application</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong>Wavelength (&lambda;)</strong></td>
-                <td class="tag-ndyag">1064 nm (Near-Infrared Solid-State)</td>
-                <td class="tag-fiber">1070 nm (Yb-Doped Active Fiber Core)</td>
+                <td class="col-ndyag tag-ndyag">1064 nm (Near-Infrared Solid-State)</td>
+                <td class="col-fiber tag-fiber">1070 nm (Yb-Doped Active Fiber Core)</td>
                 <td><span class="badge-adv">NIR Absorption</span> Steels, titanium & superalloys</td>
               </tr>
               <tr>
                 <td><strong>Beam Quality (M&sup2;)</strong></td>
-                <td>M&sup2; &approx; 2.2 &ndash; 2.5 (Multi-mode resonator)</td>
-                <td class="tag-fiber">M&sup2; &lt; 1.10 (Diffraction-limited TEM&#8320;&#8320;)</td>
+                <td class="col-ndyag">M&sup2; &approx; 2.2 &ndash; 2.5 (Multi-mode resonator)</td>
+                <td class="col-fiber tag-fiber">M&sup2; &lt; 1.10 (Diffraction-limited TEM&#8320;&#8320;)</td>
                 <td><span class="badge-adv">Extreme Fluence</span> Focuses to ultra-tight 15 &mu;m spot</td>
               </tr>
               <tr>
                 <td><strong>Output Mode & Peak Power</strong></td>
-                <td class="tag-ndyag">Pulsed (10 kW Peak &middot; 25&ndash;50 J Energy)</td>
-                <td>CW (1000 W) / Quasi-CW (2000 W Peak)</td>
+                <td class="col-ndyag tag-ndyag">Pulsed (10 kW Peak &middot; 25&ndash;50 J Energy)</td>
+                <td class="col-fiber">CW (1000 W) / Quasi-CW (2000 W Peak)</td>
                 <td><span class="badge-adv">Shockwave Drilling</span> Percussion hole penetration</td>
               </tr>
               <tr>
                 <td><strong>Pulse Width Range</strong></td>
-                <td class="tag-ndyag">0.2 ms &ndash; 20 ms / 20 ns Q-switched</td>
-                <td>CW or modulated up to 50 kHz</td>
+                <td class="col-ndyag tag-ndyag">0.2 ms &ndash; 20 ms / 20 ns Q-switched</td>
+                <td class="col-fiber">CW or modulated up to 50 kHz</td>
                 <td><span class="badge-adv">Cold Vaporization</span> Sub-micron HAZ micro-machining</td>
               </tr>
               <tr>
                 <td><strong>Wall-Plug Efficiency</strong></td>
-                <td>2.5% &ndash; 3.0% (Flashlamp & DI chiller load)</td>
-                <td class="tag-fiber">&gt; 38% Wall-Plug Efficiency</td>
+                <td class="col-ndyag">2.5% &ndash; 3.0% (Flashlamp & DI chiller load)</td>
+                <td class="col-fiber tag-fiber">&gt; 38% Wall-Plug Efficiency</td>
                 <td><span class="badge-adv">&gt;90% Energy Savings</span> Solid-state diode pumping</td>
               </tr>
               <tr>
                 <td><strong>Motion System & Kinematics</strong></td>
-                <td class="tag-ndyag">4-Axis CNC Gantry + 360&deg; Rotary Chuck</td>
-                <td>Dual-Axis High-Speed Galvo Scanner</td>
+                <td class="col-ndyag tag-ndyag">4-Axis CNC Gantry + 360&deg; Rotary Chuck</td>
+                <td class="col-fiber">Dual-Axis High-Speed Galvo Scanner</td>
                 <td><span class="badge-adv">3D Envelopes</span> Large aerofoils vs 8,000 mm/s marking</td>
               </tr>
               <tr>
                 <td><strong>Positioning Resolution</strong></td>
-                <td>&plusmn;5.0 &mu;m positioning &middot; &plusmn;2.0 &mu;m repeatability</td>
-                <td class="tag-fiber">&plusmn;0.5 &mu;m optical angular resolution</td>
+                <td class="col-ndyag">&plusmn;5.0 &mu;m positioning &middot; &plusmn;2.0 &mu;m repeatability</td>
+                <td class="col-fiber tag-fiber">&plusmn;0.5 &mu;m optical angular resolution</td>
                 <td><span class="badge-adv">Micro-scale Accuracy</span> Closed-loop digital encoders</td>
               </tr>
               <tr>
                 <td><strong>Assist Gas Delivery</strong></td>
-                <td>Coaxial supersonic Laval nozzle (O&lrm;&#8322;, N&lrm;&#8322;, Ar &lt; 15 bar)</td>
-                <td>Coaxial shield or cross-jet air knife</td>
+                <td class="col-ndyag">Coaxial supersonic Laval nozzle (O&lrm;&#8322;, N&lrm;&#8322;, Ar &lt; 15 bar)</td>
+                <td class="col-fiber">Coaxial shield or cross-jet air knife</td>
                 <td><span class="badge-adv">Dross-Free</span> Supersonic melt ejection mechanics</td>
               </tr>
               <tr>
                 <td><strong>Primary Lab Application</strong></td>
-                <td>Aerospace effusion hole drilling & stent cutting</td>
-                <td>Superhydrophobic biomaterial texturing & Cu-Al welding</td>
+                <td class="col-ndyag">Aerospace effusion hole drilling & stent cutting</td>
+                <td class="col-fiber">Superhydrophobic biomaterial texturing & Cu-Al welding</td>
                 <td><span class="badge-adv">Full Spectrum</span> Advanced micro-manufacturing</td>
               </tr>
             </tbody>
@@ -1235,26 +1669,32 @@
             </div>
 
             <div class="control-row">
-              <label>Pulse Energy (J):</label>
+              <div class="control-row-wrap" style="width:100%;">
+                <label>Pulse Energy (J):</label>
+                <span id="energyVal" class="control-val">20 J</span>
+              </div>
               <input type="range" id="pulseEnergy" min="5" max="40" value="20" oninput="runDrillSim()">
-              <span id="energyVal" class="control-val">20 J</span>
             </div>
 
             <div class="control-row">
-              <label>Pulse Duration (ms):</label>
+              <div class="control-row-wrap" style="width:100%;">
+                <label>Pulse Duration (ms):</label>
+                <span id="widthVal" class="control-val">1.5 ms</span>
+              </div>
               <input type="range" id="pulseWidth" min="0.2" max="5.0" step="0.1" value="1.5" oninput="runDrillSim()">
-              <span id="widthVal" class="control-val">1.5 ms</span>
             </div>
 
             <div class="control-row">
-              <label>Number of Pulses:</label>
+              <div class="control-row-wrap" style="width:100%;">
+                <label>Number of Pulses:</label>
+                <span id="countVal" class="control-val">12</span>
+              </div>
               <input type="range" id="pulseCount" min="1" max="30" value="12" oninput="runDrillSim()">
-              <span id="countVal" class="control-val">12</span>
             </div>
 
             <div class="calc-output-box">
               <div class="calc-item">
-                <span class="calc-label">TOTAL HOLE DEPTH:</span>
+                <span class="calc-label">HOLE DEPTH:</span>
                 <span id="resHoleDepth" class="calc-val">2.84 mm</span>
               </div>
               <div class="calc-item">
@@ -1262,11 +1702,11 @@
                 <span id="resAspectRatio" class="calc-val">18.9 : 1</span>
               </div>
               <div class="calc-item">
-                <span class="calc-label">EST. RECAST LAYER:</span>
+                <span class="calc-label">EST. RECAST:</span>
                 <span id="resRecast" class="calc-val" style="color: var(--accent-orange);">&lt; 11 &mu;m</span>
               </div>
               <div class="calc-item">
-                <span class="calc-label">PEAK POWER DENSITY:</span>
+                <span class="calc-label">PEAK FLUENCE:</span>
                 <span id="resFluence" class="calc-val">1.33 &times; 10&#8310; W/cm&sup2;</span>
               </div>
             </div>
@@ -1285,15 +1725,19 @@
             </div>
 
             <div class="control-row">
-              <label>Laser Power (Watts):</label>
+              <div class="control-row-wrap" style="width:100%;">
+                <label>Laser Power (Watts):</label>
+                <span id="powerVal" class="control-val cyan">800 W</span>
+              </div>
               <input type="range" id="laserPower" min="200" max="1500" step="50" value="800" oninput="runCutSim()">
-              <span id="powerVal" class="control-val cyan">800 W</span>
             </div>
 
             <div class="control-row">
-              <label>Sheet Thickness (mm):</label>
+              <div class="control-row-wrap" style="width:100%;">
+                <label>Sheet Thickness (mm):</label>
+                <span id="thickVal" class="control-val cyan">2.0 mm</span>
+              </div>
               <input type="range" id="sheetThick" min="0.5" max="6.0" step="0.5" value="2.0" oninput="runCutSim()">
-              <span id="thickVal" class="control-val cyan">2.0 mm</span>
             </div>
 
             <div class="control-row">
@@ -1306,26 +1750,28 @@
             </div>
 
             <div class="control-row">
-              <label>Cutting Speed (mm/s):</label>
+              <div class="control-row-wrap" style="width:100%;">
+                <label>Cutting Speed (mm/s):</label>
+                <span id="speedVal" class="control-val cyan">35 mm/s</span>
+              </div>
               <input type="range" id="cutSpeed" min="5" max="120" value="35" oninput="runCutSim()">
-              <span id="speedVal" class="control-val cyan">35 mm/s</span>
             </div>
 
             <div class="calc-output-box">
               <div class="calc-item">
-                <span class="calc-label">EST. KERF WIDTH:</span>
+                <span class="calc-label">KERF WIDTH:</span>
                 <span id="resKerf" class="calc-val">142 &mu;m</span>
               </div>
               <div class="calc-item">
-                <span class="calc-label">HEAT INPUT PER LENGTH:</span>
+                <span class="calc-label">HEAT INPUT:</span>
                 <span id="resHeatInput" class="calc-val">22.8 J/mm</span>
               </div>
               <div class="calc-item">
-                <span class="calc-label">MAX SEVER SPEED:</span>
+                <span class="calc-label">MAX SEVER:</span>
                 <span id="resMaxSpeed" class="calc-val" style="color: var(--accent-cyan);">58 mm/s</span>
               </div>
               <div class="calc-item">
-                <span class="calc-label">CUT INTEGRITY:</span>
+                <span class="calc-label">INTEGRITY:</span>
                 <span id="resCutStatus" class="calc-val" style="color: var(--accent-green);">OPTIMAL SEVER</span>
               </div>
             </div>
@@ -1428,7 +1874,8 @@
 
   <!-- ==========================================================================
        THREE.JS HIGH-FIDELITY 3D EXPLODED CAD ENGINE & LOGIC
-       ========================================================================== -->
+       ========================================================================== */
+  -->
   <script>
     // Tab switching
     function switchTab(tabId, btn) {
@@ -1438,6 +1885,51 @@
       btn.classList.add('active');
       if (tabId === 'explorer' && renderer) {
         onWindowResize();
+      }
+    }
+
+    // Student Device Viewport Switcher
+    function setDeviceView(mode) {
+      document.body.classList.remove('force-mobile-view', 'force-desktop-view');
+      document.getElementById('btnViewAuto').classList.remove('active');
+      document.getElementById('btnViewLaptop').classList.remove('active');
+      document.getElementById('btnViewMobile').classList.remove('active');
+
+      if (mode === 'laptop') {
+        document.body.classList.add('force-desktop-view');
+        document.getElementById('btnViewLaptop').classList.add('active');
+        localStorage.setItem('coep_laser_view_mode', 'laptop');
+      } else if (mode === 'mobile') {
+        document.body.classList.add('force-mobile-view');
+        document.getElementById('btnViewMobile').classList.add('active');
+        localStorage.setItem('coep_laser_view_mode', 'mobile');
+      } else {
+        document.getElementById('btnViewAuto').classList.add('active');
+        localStorage.removeItem('coep_laser_view_mode');
+      }
+
+      setTimeout(onWindowResize, 100);
+    }
+
+    // Mobile Specs Filter
+    function filterSpecsTable(col) {
+      const table = document.getElementById('specsTable');
+      document.getElementById('filterBoth').classList.toggle('active', col === 'both');
+      document.getElementById('filterNdyag').classList.toggle('active', col === 'ndyag');
+      document.getElementById('filterFiber').classList.toggle('active', col === 'fiber');
+
+      const ndyagCells = table.querySelectorAll('.col-ndyag');
+      const fiberCells = table.querySelectorAll('.col-fiber');
+
+      if (col === 'ndyag') {
+        ndyagCells.forEach(el => el.style.display = '');
+        fiberCells.forEach(el => el.style.display = 'none');
+      } else if (col === 'fiber') {
+        ndyagCells.forEach(el => el.style.display = 'none');
+        fiberCells.forEach(el => el.style.display = '');
+      } else {
+        ndyagCells.forEach(el => el.style.display = '');
+        fiberCells.forEach(el => el.style.display = '');
       }
     }
 
@@ -1566,20 +2058,20 @@
       controls = new THREE.OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
       controls.dampingFactor = 0.06;
-      controls.maxPolarAngle = Math.PI / 2 + 0.05; // Prevent camera from going under ground
-      controls.minDistance = 50;
+      controls.maxPolarAngle = Math.PI / 2 + 0.05;
+      controls.minDistance = 40;
       controls.maxDistance = 550;
       controls.target.set(0, 15, 0);
 
-      // Lighting: Realistic Studio Lighting with Soft Shadows
+      // Lighting: Studio Lighting with Soft Shadows
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
       scene.add(ambientLight);
 
       const mainLight = new THREE.DirectionalLight(0xfff8ee, 0.95);
       mainLight.position.set(140, 220, 120);
       mainLight.castShadow = true;
-      mainLight.shadow.mapSize.width = 2048;
-      mainLight.shadow.mapSize.height = 2048;
+      mainLight.shadow.mapSize.width = 1024;
+      mainLight.shadow.mapSize.height = 1024;
       mainLight.shadow.camera.near = 10;
       mainLight.shadow.camera.far = 600;
       mainLight.shadow.camera.left = -160;
@@ -1597,7 +2089,7 @@
       rimLight.position.set(0, 100, -180);
       scene.add(rimLight);
 
-      // Blueprint Ground Grid & Shadow Receiver Plane
+      // Floor Plane & Grid
       const groundGeo = new THREE.PlaneGeometry(800, 800);
       const groundMat = new THREE.ShadowMaterial({ opacity: 0.14 });
       const groundPlane = new THREE.Mesh(groundGeo, groundMat);
@@ -1606,12 +2098,11 @@
       groundPlane.receiveShadow = true;
       scene.add(groundPlane);
 
-      // Subtle drafting grid on floor
       const gridHelper = new THREE.GridHelper(300, 30, 0x1B2A44, 0xD4CEBF);
       gridHelper.position.y = -19.9;
       scene.add(gridHelper);
 
-      // Leader Lines Group (dashed engineering lines connecting exploded parts)
+      // Leader Lines Group
       leaderLinesGroup = new THREE.Group();
       scene.add(leaderLinesGroup);
 
@@ -1619,12 +2110,14 @@
       buildNdYagModel();
       buildFiberModel();
 
-      // Ensure proper initial visibility
       fiberModelGroup.visible = false;
       ndyagModelGroup.visible = true;
 
       // Event Listeners
       window.addEventListener('resize', onWindowResize);
+      window.addEventListener('orientationchange', () => {
+        setTimeout(onWindowResize, 200);
+      });
 
       // Animation Loop
       animate();
@@ -1639,6 +2132,7 @@
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
+      updateCalloutBadges();
     }
 
     // ==========================================================================
@@ -1668,7 +2162,6 @@
       leaderDashedMat: new THREE.LineDashedMaterial({ color: 0x1B2A44, dashSize: 2.5, gapSize: 1.5, opacity: 0.55, transparent: true })
     };
 
-    // Helper: Add wireframe technical edge outlines to any mesh
     function addTechnicalEdges(mesh, edgeColor = 0x1B2A44) {
       const edges = new THREE.EdgesGeometry(mesh.geometry, 25);
       const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: edgeColor, linewidth: 1 }));
@@ -1780,13 +2273,11 @@
 
       // 6. 4-Axis CNC Gantry & Rotary A-Axis Chuck (Part 6)
       const g6 = new THREE.Group();
-      // Granite Bed
       const graniteBed = new THREE.Mesh(new THREE.BoxGeometry(130, 14, 90), cadMaterials.granite);
       graniteBed.position.set(0, -7, 0);
       addTechnicalEdges(graniteBed);
       g6.add(graniteBed);
 
-      // Dual X Guideway Rails
       const rail1 = new THREE.Mesh(new THREE.BoxGeometry(120, 3, 5), cadMaterials.polishedSteel);
       rail1.position.set(0, 1, -32);
       g6.add(rail1);
@@ -1794,26 +2285,22 @@
       rail2.position.set(0, 1, 32);
       g6.add(rail2);
 
-      // Worktable Base
       const tablePlate = new THREE.Mesh(new THREE.BoxGeometry(85, 4, 55), cadMaterials.polishedSteel);
       tablePlate.position.set(0, 4, 0);
       addTechnicalEdges(tablePlate);
       g6.add(tablePlate);
 
-      // Rotary Chuck (A-Axis Indexer)
       const chuckBody = new THREE.Mesh(new THREE.CylinderGeometry(8, 8, 8, 24), cadMaterials.castIron);
       chuckBody.rotation.z = Math.PI / 2;
       chuckBody.position.set(-15, 12, 0);
       addTechnicalEdges(chuckBody);
       g6.add(chuckBody);
 
-      // Workpiece in chuck (aerospace cylinder)
       const turbineWorkpiece = new THREE.Mesh(new THREE.CylinderGeometry(4, 4, 30, 20), cadMaterials.polishedSteel);
       turbineWorkpiece.rotation.z = Math.PI / 2;
       turbineWorkpiece.position.set(6, 12, 0);
       g6.add(turbineWorkpiece);
 
-      // Gantry Uprights & Cross Bridge
       const leftUpright = new THREE.Mesh(new THREE.BoxGeometry(12, 48, 16), cadMaterials.castIron);
       leftUpright.position.set(-45, 24, 0);
       addTechnicalEdges(leftUpright);
@@ -1867,7 +2354,7 @@
       ndyagModelGroup.add(g8);
       ndyagParts[8] = { group: g8, home: new THREE.Vector3(85, 0, 45), explode: new THREE.Vector3(45, 15, 35) };
 
-      // Red Laser Beam Line & Focal Spark
+      // Laser Beam Line & Spark
       const beamGeo = new THREE.BufferGeometry().setFromPoints([
         new THREE.Vector3(48, 48, 0),
         new THREE.Vector3(48, 12, 0)
@@ -1981,12 +2468,10 @@
       addTechnicalEdges(honeycombGrid);
       g6.add(honeycombGrid);
 
-      // Workpiece plate on honeycomb bed
       const workplate = new THREE.Mesh(new THREE.BoxGeometry(36, 1.5, 26), cadMaterials.opticalCyan);
       workplate.position.set(25, -5.2, 0);
       g6.add(workplate);
 
-      // Dross Catchment Drawer
       const drawer = new THREE.Mesh(new THREE.BoxGeometry(76, 4, 56), cadMaterials.castIron);
       drawer.position.set(25, -18, 0);
       addTechnicalEdges(drawer);
@@ -2002,7 +2487,6 @@
       addTechnicalEdges(extractorBody);
       g7.add(extractorBody);
 
-      // Articulated Arm
       const armCurve = new THREE.CatmullRomCurve3([
         new THREE.Vector3(0, 22, 0),
         new THREE.Vector3(-15, 38, 10),
@@ -2039,7 +2523,7 @@
       fiberModelGroup.add(g8);
       fiberParts[8] = { group: g8, home: new THREE.Vector3(-65, 18, 0), explode: new THREE.Vector3(-35, 0, -15) };
 
-      // Laser Cone (1070 nm) focused to spot
+      // Laser Cone (1070 nm)
       const coneGeo = new THREE.ConeGeometry(7.5, 7, 24, 1, true);
       const laserCone = new THREE.Mesh(coneGeo, cadMaterials.laserBeamGlow);
       laserCone.position.set(25, -2, 0);
@@ -2061,7 +2545,6 @@
 
       const activeParts = currentApparatus === 'ndyag' ? ndyagParts : fiberParts;
 
-      // Clear existing leader lines
       while (leaderLinesGroup.children.length > 0) {
         leaderLinesGroup.remove(leaderLinesGroup.children[0]);
       }
@@ -2071,7 +2554,6 @@
         const newPos = new THREE.Vector3().copy(item.home).addScaledVector(item.explode, factor);
         item.group.position.copy(newPos);
 
-        // Draw leader line if exploded
         if (factor > 0.05 && item.explode.lengthSq() > 10) {
           const points = [
             new THREE.Vector3().copy(item.home),
@@ -2093,7 +2575,6 @@
     let badgeElements = [];
 
     function initCalloutBadges() {
-      // Remove previous badge divs if any
       document.querySelectorAll('.callout-badge-3d').forEach(el => el.remove());
       badgeElements = [];
 
@@ -2126,15 +2607,12 @@
         const part = activeParts[b.id];
         if (!part) return;
 
-        // Get world position of the part
         const worldPos = new THREE.Vector3();
         part.group.getWorldPosition(worldPos);
-        worldPos.y += 8; // Float slightly above the component
+        worldPos.y += 8;
 
-        // Project 3D coordinate to 2D screen coordinate
         worldPos.project(camera);
 
-        // Check if point is in front of camera
         if (worldPos.z < 1) {
           const x = (worldPos.x * 0.5 + 0.5) * width;
           const y = (-(worldPos.y * 0.5) + 0.5) * height;
@@ -2154,7 +2632,6 @@
       highlightedId = id;
       const isFiber = currentApparatus === 'fiber';
 
-      // Update sidebar active class
       document.querySelectorAll('.component-item').forEach(el => {
         el.classList.remove('active');
         if (el.id === 'comp-item-' + id) {
@@ -2163,20 +2640,16 @@
         }
       });
 
-      // Update 3D callouts active look
       badgeElements.forEach(b => {
         b.element.style.borderColor = (b.id === id) ? (isFiber ? '#1590B9' : '#D13F29') : '#1B2A44';
         b.element.style.transform = (b.id === id) ? 'scale(1.2)' : 'scale(1)';
       });
 
-      // Smoothly pan camera target to the selected part
       const activeParts = isFiber ? fiberParts : ndyagParts;
       const part = activeParts[id];
       if (part) {
         const targetPos = new THREE.Vector3();
         part.group.getWorldPosition(targetPos);
-        
-        // Gentle tween towards target
         animateCameraTarget(targetPos);
       }
     }
@@ -2236,7 +2709,6 @@
       document.querySelectorAll('.component-item').forEach(el => el.classList.remove('active'));
     }
 
-    // Render Animation Loop
     function animate() {
       requestAnimationFrame(animate);
       if (controls) controls.update();
@@ -2318,6 +2790,13 @@
       initCalloutBadges();
       runDrillSim();
       runCutSim();
+
+      // Restore saved user view preference if any
+      const savedMode = localStorage.getItem('coep_laser_view_mode');
+      if (savedMode === 'laptop' || savedMode === 'mobile') {
+        setDeviceView(savedMode);
+      }
+
       setTimeout(onWindowResize, 200);
     });
   </script>

@@ -1,0 +1,654 @@
+
+==================== PAGE 1 ====================
+[y=  79, x=  65] sz=10px #e8e2d0 IBMPlexMono-SemiBold   | DRG. NO. ARVR-001 · SHEET 1 / 4
+[y= 156, x=  55] sz=10px #1b2944 IBMPlexMono-SemiBold   | H I R A C H A N D D A U L A T L A B O R A T O R Y · C O E P T E C H
+[y=  59, x= 463] sz=10px #d13f29 IBMPlexMono-SemiBold   | S E C T I O N A · T H E H A R D W A R E
+[y=  75, x= 463] sz=42px #1b2944 Archivo-SemiBold_wght3 | Four headsets, taken apart
+[y= 129, x= 463] sz=13px #4e5972 ArchivoRoman           | Every XR headset in the lab, drawn from real 3D product models and exploded into its main parts. Numbers on each drawing match the list beside it.
+[y=  86, x=1577] sz=15px #1b2944 Archivo-SemiBold_wght3 | Explore it in 3D
+[y= 109, x=1577] sz= 9px #4e5972 IBMPlexMono            | Scan for the interactive web brochure.
+[y= 214, x= 579] sz=21px #1b2944 Archivo-SemiBold_wght3 | Meta Quest 3
+[y= 244, x= 586] sz= 9px #1590b9 IBMPlexMono-SemiBold   | VR
+[y= 244, x= 614] sz= 9px #4e5972 IBMPlexMono-SemiBold   | MR
+[y= 245, x= 641] sz= 9px #4e5972 IBMPlexMono            | Standalone, also PC VR
+[y= 282, x= 579] sz= 8px #4e5972 IBMPlexMono-SemiBold   | DISPLAY
+[y= 281, x= 652] sz=10px #1b2944 ArchivoRoman           | Dual LCD, 2064 × 2208 per eye
+[y= 300, x= 579] sz= 8px #4e5972 IBMPlexMono-SemiBold   | FOV
+[y= 299, x= 652] sz=10px #1b2944 ArchivoRoman           | 110
+[y= 302, x= 670] sz= 8px #1b2944 ArchivoRoman           | °
+[y= 317, x= 579] sz= 8px #4e5972 IBMPlexMono-SemiBold   | TRACKING
+[y= 316, x= 652] sz=10px #1b2944 ArchivoRoman           | Inside-out 6DoF, hand tracking
+[y= 335, x= 579] sz= 8px #4e5972 IBMPlexMono-SemiBold   | CHIP
+[y= 334, x= 652] sz=10px #1b2944 ArchivoRoman           | Snapdragon XR2 Gen 2
+[y= 353, x= 579] sz= 8px #4e5972 IBMPlexMono-SemiBold   | WEIGHT
+[y= 352, x= 652] sz=10px #1b2944 ArchivoRoman           | 500 g · 2–3 h battery
+[y= 444, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 1
+[y= 441, x= 602] sz=10px #1b2944 ArchivoRoman           | Head strap
+[y= 441, x= 657] sz=10px #1b2944 ArchivoRoman           |  · holds 500 g steady for long sessions
+[y= 463, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 2
+[y= 461, x= 602] sz=10px #1b2944 ArchivoRoman           | Facial interface
+[y= 461, x= 679] sz=10px #1b2944 ArchivoRoman           |  · cushions the face, seals out light
+[y= 484, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 3
+[y= 480, x= 602] sz=10px #1b2944 ArchivoRoman           | Pancake lenses + LCDs
+[y= 480, x= 719] sz=10px #1b2944 ArchivoRoman           |  · 2064 × 2208 per eye, 110
+[y= 482, x= 843] sz= 7px #1b2944 ArchivoRoman           | °
+[y= 494, x= 602] sz=10px #1b2944 ArchivoRoman           | view
+[y= 514, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 4
+[y= 511, x= 602] sz=10px #1b2944 ArchivoRoman           | Chassis + XR2 Gen 2
+[y= 511, x= 706] sz=10px #1b2944 ArchivoRoman           |  · all compute on the headset
+[y= 533, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 5
+[y= 530, x= 602] sz=10px #1b2944 ArchivoRoman           | Housing
+[y= 530, x= 644] sz=10px #1b2944 ArchivoRoman           |  · battery for 2–3 h untethered
+[y= 552, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 6
+[y= 550, x= 602] sz=10px #1b2944 ArchivoRoman           | Front cover + sensor pills
+[y= 550, x= 727] sz=10px #1b2944 ArchivoRoman           |  · colour passthrough, depth,
+[y= 564, x= 602] sz=10px #1b2944 ArchivoRoman           | hand tracking
+[y= 214, x=1428] sz=21px #1b2944 Archivo-SemiBold_wght3 | HTC Vive Pro 2
+[y= 244, x=1434] sz= 9px #1590b9 IBMPlexMono-SemiBold   | VR
+[y= 245, x=1460] sz= 9px #4e5972 IBMPlexMono            | PC-tethered
+[y= 282, x=1428] sz= 8px #4e5972 IBMPlexMono-SemiBold   | DISPLAY
+[y= 281, x=1500] sz=10px #1b2944 ArchivoRoman           | RGB LCD, 2448 × 2448 per eye (5K)
+[y= 300, x=1428] sz= 8px #4e5972 IBMPlexMono-SemiBold   | FOV
+[y= 299, x=1500] sz=10px #1b2944 ArchivoRoman           | 120
+[y= 302, x=1519] sz= 8px #1b2944 ArchivoRoman           | °
+[y= 317, x=1428] sz= 8px #4e5972 IBMPlexMono-SemiBold   | REFRESH
+[y= 316, x=1500] sz=10px #1b2944 ArchivoRoman           | 90 / 120 Hz
+[y= 335, x=1428] sz= 8px #4e5972 IBMPlexMono-SemiBold   | TRACKING
+[y= 334, x=1500] sz=10px #1b2944 ArchivoRoman           | Lighthouse base stations, 6DoF
+[y= 353, x=1428] sz= 8px #4e5972 IBMPlexMono-SemiBold   | WEIGHT
+[y= 352, x=1500] sz=10px #1b2944 ArchivoRoman           | 850 g
+[y= 456, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 1
+[y= 452, x=1451] sz=10px #1b2944 ArchivoRoman           | Rear pad + fit dial
+[y= 452, x=1536] sz=10px #1b2944 ArchivoRoman           |  · tightens the fit
+[y= 475, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 2
+[y= 471, x=1451] sz=10px #1b2944 ArchivoRoman           | Rear cradle
+[y= 471, x=1507] sz=10px #1b2944 ArchivoRoman           |  · spreads the load over the head
+[y= 494, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 3
+[y= 491, x=1451] sz=10px #1b2944 ArchivoRoman           | Top strap
+[y= 492, x=1497] sz=10px #1b2944 ArchivoRoman           |  · takes weight off the face
+[y= 514, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 4
+[y= 511, x=1451] sz=10px #1b2944 ArchivoRoman           | Built-in headphones
+[y= 511, x=1551] sz=10px #1b2944 ArchivoRoman           |  · positional audio
+[y= 533, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 5
+[y= 530, x=1451] sz=10px #1b2944 ArchivoRoman           | Body + face cushion
+[y= 530, x=1551] sz=10px #1b2944 ArchivoRoman           |  · displays and lenses, cable to the
+[y= 543, x=1451] sz=10px #1b2944 ArchivoRoman           | i9 PC
+[y= 564, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 6
+[y= 560, x=1451] sz=10px #1b2944 ArchivoRoman           | Front shell
+[y= 560, x=1503] sz=10px #1b2944 ArchivoRoman           |  · Lighthouse sensors + stereo cameras
+[y= 620, x= 579] sz=21px #1b2944 Archivo-SemiBold_wght3 | Microsoft HoloLens 2
+[y= 650, x= 586] sz= 9px #d13f29 IBMPlexMono-SemiBold   | AR
+[y= 651, x= 612] sz= 9px #4e5972 IBMPlexMono            | Standalone holographic
+[y= 688, x= 579] sz= 8px #4e5972 IBMPlexMono-SemiBold   | DISPLAY
+[y= 688, x= 652] sz=10px #1b2944 ArchivoRoman           | 2K 3:2 light engines, 2048 × 1080 per eye
+[y= 706, x= 579] sz= 8px #4e5972 IBMPlexMono-SemiBold   | FOV
+[y= 706, x= 652] sz=10px #1b2944 ArchivoRoman           | About 52
+[y= 708, x= 697] sz= 8px #1b2944 ArchivoRoman           | °
+[y= 723, x= 579] sz= 8px #4e5972 IBMPlexMono-SemiBold   | CHIP
+[y= 722, x= 652] sz=10px #1b2944 ArchivoRoman           | Snapdragon 850
+[y= 741, x= 579] sz= 8px #4e5972 IBMPlexMono-SemiBold   | INPUT
+[y= 740, x= 652] sz=10px #1b2944 ArchivoRoman           | Hands, eyes, voice; no controllers
+[y= 759, x= 579] sz= 8px #4e5972 IBMPlexMono-SemiBold   | WEIGHT
+[y= 758, x= 652] sz=10px #1b2944 ArchivoRoman           | About 566 g
+[y= 861, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 1
+[y= 858, x= 602] sz=10px #1b2944 ArchivoRoman           | Battery pack + dial
+[y= 858, x= 694] sz=10px #1b2944 ArchivoRoman           |  · balances the headset at the back
+[y= 881, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 2
+[y= 877, x= 602] sz=10px #1b2944 ArchivoRoman           | Rear housing
+[y= 877, x= 668] sz=10px #1b2944 ArchivoRoman           |  · battery and electronics
+[y= 900, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 3
+[y= 898, x= 602] sz=10px #1b2944 ArchivoRoman           | Headband
+[y= 898, x= 654] sz=10px #1b2944 ArchivoRoman           |  · holds the display in front of the eyes
+[y= 920, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 4
+[y= 917, x= 602] sz=10px #1b2944 ArchivoRoman           | Brow pad + compute
+[y= 917, x= 705] sz=10px #1b2944 ArchivoRoman           |  · Snapdragon 850 runs apps
+[y= 939, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 5
+[y= 936, x= 602] sz=10px #1b2944 ArchivoRoman           | Sensor bar + light engines
+[y= 936, x= 731] sz=10px #1b2944 ArchivoRoman           |  · 6DoF, hand and eye
+[y= 949, x= 602] sz=10px #1b2944 ArchivoRoman           | tracking; projects holograms
+[y= 970, x= 585] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 6
+[y= 966, x= 602] sz=10px #1b2944 ArchivoRoman           | Visor + waveguides
+[y= 966, x= 699] sz=10px #1b2944 ArchivoRoman           |  · see-through holograms, about 52
+[y= 968, x= 861] sz= 7px #1b2944 ArchivoRoman           | °
+[y= 620, x=1428] sz=21px #1b2944 Archivo-SemiBold_wght3 | Apple Vision Pro
+[y= 650, x=1434] sz= 9px #4e5972 IBMPlexMono-SemiBold   | MR
+[y= 651, x=1460] sz= 9px #4e5972 IBMPlexMono            | Mixed reality, AR + VR
+[y= 688, x=1428] sz= 8px #4e5972 IBMPlexMono-SemiBold   | DISPLAY
+[y= 688, x=1500] sz=10px #1b2944 ArchivoRoman           | Micro-OLED, 
+[y= 687, x=1568] sz=11px #1b2944 ArialNarrow            | ≈
+[y= 688, x=1575] sz=10px #1b2944 ArchivoRoman           |  4K per eye 
+[y= 689, x=1632] sz= 8px #d13f29 IBMPlexMono-Medium     | est.
+[y= 706, x=1428] sz= 8px #4e5972 IBMPlexMono-SemiBold   | FOV
+[y= 706, x=1500] sz=10px #1b2944 ArchivoRoman           | About 120
+[y= 708, x=1552] sz= 8px #1b2944 ArchivoRoman           | °
+[y= 706, x=1556] sz=10px #1b2944 ArchivoRoman           |  
+[y= 707, x=1559] sz= 8px #d13f29 IBMPlexMono-Medium     | est.
+[y= 723, x=1428] sz= 8px #4e5972 IBMPlexMono-SemiBold   | CHIPS
+[y= 722, x=1500] sz=10px #1b2944 ArchivoRoman           | Apple M2 + R1
+[y= 741, x=1428] sz= 8px #4e5972 IBMPlexMono-SemiBold   | INPUT
+[y= 740, x=1500] sz=10px #1b2944 ArchivoRoman           | Hands, eyes, voice
+[y= 759, x=1428] sz= 8px #4e5972 IBMPlexMono-SemiBold   | WEIGHT
+[y= 758, x=1500] sz=10px #1b2944 ArchivoRoman           | 500–600 g 
+[y= 760, x=1557] sz= 8px #d13f29 IBMPlexMono-Medium     | est.
+[y= 841, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 1
+[y= 838, x=1451] sz=10px #1b2944 ArchivoRoman           | Solo Knit Band + Fit Dial
+[y= 838, x=1569] sz=10px #1b2944 ArchivoRoman           |  · spreads the weight
+[y= 861, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 2
+[y= 858, x=1451] sz=10px #1b2944 ArchivoRoman           | Audio straps
+[y= 858, x=1514] sz=10px #1b2944 ArchivoRoman           |  · spatial audio near the ears
+[y= 881, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 3
+[y= 877, x=1451] sz=10px #1b2944 ArchivoRoman           | Cushion
+[y= 877, x=1492] sz=10px #1b2944 ArchivoRoman           |  · soft layer against the face
+[y= 900, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 4
+[y= 898, x=1451] sz=10px #1b2944 ArchivoRoman           | Light seal
+[y= 898, x=1499] sz=10px #1b2944 ArchivoRoman           |  · blocks outside light
+[y= 920, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 5
+[y= 917, x=1451] sz=10px #1b2944 ArchivoRoman           | Lens + display modules
+[y= 917, x=1567] sz=10px #1b2944 ArchivoRoman           |  · micro-OLED, 
+[y= 916, x=1638] sz=10px #1b2944 ArialNarrow            | ≈
+[y= 917, x=1644] sz=10px #1b2944 ArchivoRoman           |  4K per eye
+[y= 939, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 6
+[y= 936, x=1451] sz=10px #1b2944 ArchivoRoman           | Aluminium frame, M2 + R1
+[y= 936, x=1581] sz=10px #1b2944 ArchivoRoman           |  · apps and sensor
+[y= 949, x=1451] sz=10px #1b2944 ArchivoRoman           | processing
+[y= 970, x=1433] sz= 8px #1b2944 IBMPlexMono-SemiBold   | 7
+[y= 966, x=1451] sz=10px #1b2944 ArchivoRoman           | Glass front
+[y= 966, x=1505] sz=10px #1b2944 ArchivoRoman           |  · covers the camera and sensor array
+[y=1012, x=  55] sz=15px #1b2944 Archivo-SemiBold_wght3 | Compared to scale
+[y=1033, x=  55] sz= 9px #4e5972 IBMPlexMono            | Hatched bars are the maker's unconfirmed figures. Also in the lab: an i9-13900K workstation (64 GB RAM) and an NVIDIA RTX 4090 for model training.
+[y=1011, x= 258] sz=10px #4e5972 IBMPlexMono-SemiBold   | FIELD OF VIEW
+[y=1030, x= 258] sz= 9px #1b2944 IBMPlexMono-Medium     | Quest 3
+[y=1030, x= 713] sz= 9px #1b2944 IBMPlexMono-Medium     | 110°
+[y=1047, x= 258] sz= 9px #1b2944 IBMPlexMono-Medium     | Vive Pro 2
+[y=1047, x= 713] sz= 9px #1b2944 IBMPlexMono-Medium     | 120°
+[y=1065, x= 258] sz= 9px #1b2944 IBMPlexMono-Medium     | HoloLens 2
+[y=1065, x= 718] sz= 9px #1b2944 IBMPlexMono-Medium     | 52°
+[y=1082, x= 258] sz= 9px #1b2944 IBMPlexMono-Medium     | Vision Pro
+[y=1082, x= 686] sz= 9px #1b2944 IBMPlexMono-Medium     | 120° est.
+[y=1011, x= 756] sz=10px #4e5972 IBMPlexMono-SemiBold   | PIXELS PER EYE
+[y=1030, x= 756] sz= 9px #1b2944 IBMPlexMono-Medium     | Quest 3
+[y=1030, x=1200] sz= 9px #1b2944 IBMPlexMono-Medium     | 4.6 MP
+[y=1047, x= 756] sz= 9px #1b2944 IBMPlexMono-Medium     | Vive Pro 2
+[y=1047, x=1200] sz= 9px #1b2944 IBMPlexMono-Medium     | 6.0 MP
+[y=1065, x= 756] sz= 9px #1b2944 IBMPlexMono-Medium     | HoloLens 2
+[y=1065, x=1200] sz= 9px #1b2944 IBMPlexMono-Medium     | 2.2 MP
+[y=1082, x= 756] sz= 9px #1b2944 IBMPlexMono-Medium     | Vision Pro
+[y=1082, x=1173] sz= 9px #1b2944 IBMPlexMono-Medium     | 8.3 MP est.
+[y=1011, x=1254] sz=10px #4e5972 IBMPlexMono-SemiBold   | WEIGHT
+[y=1030, x=1254] sz= 9px #1b2944 IBMPlexMono-Medium     | Quest 3
+[y=1030, x=1704] sz= 9px #1b2944 IBMPlexMono-Medium     | 500 g
+[y=1047, x=1254] sz= 9px #1b2944 IBMPlexMono-Medium     | Vive Pro 2
+[y=1047, x=1704] sz= 9px #1b2944 IBMPlexMono-Medium     | 850 g
+[y=1065, x=1254] sz= 9px #1b2944 IBMPlexMono-Medium     | HoloLens 2
+[y=1065, x=1704] sz= 9px #1b2944 IBMPlexMono-Medium     | 566 g
+[y=1082, x=1254] sz= 9px #1b2944 IBMPlexMono-Medium     | Vision Pro
+[y=1082, x=1677] sz= 9px #1b2944 IBMPlexMono-Medium     | 550 g est.
+[y=   7, x= 132] sz= 9px #4e5972 IBMPlexMono            | 1
+[y=   7, x= 349] sz= 9px #4e5972 IBMPlexMono            | 2
+[y=   7, x= 565] sz= 9px #4e5972 IBMPlexMono            | 3
+[y=   7, x= 782] sz= 9px #4e5972 IBMPlexMono            | 4
+[y=   7, x= 999] sz= 9px #4e5972 IBMPlexMono            | 5
+[y=   7, x=1216] sz= 9px #4e5972 IBMPlexMono            | 6
+[y=   7, x=1433] sz= 9px #4e5972 IBMPlexMono            | 7
+[y=   7, x=1650] sz= 9px #4e5972 IBMPlexMono            | 8
+[y=1244, x= 132] sz= 9px #4e5972 IBMPlexMono            | 1
+[y=1244, x= 349] sz= 9px #4e5972 IBMPlexMono            | 2
+[y=1244, x= 565] sz= 9px #4e5972 IBMPlexMono            | 3
+[y=1244, x= 782] sz= 9px #4e5972 IBMPlexMono            | 4
+[y=1244, x= 999] sz= 9px #4e5972 IBMPlexMono            | 5
+[y=1244, x=1216] sz= 9px #4e5972 IBMPlexMono            | 6
+[y=1244, x=1433] sz= 9px #4e5972 IBMPlexMono            | 7
+[y=1244, x=1650] sz= 9px #4e5972 IBMPlexMono            | 8
+[y= 121, x=   8] sz= 9px #4e5972 IBMPlexMono            | A
+[y= 323, x=   8] sz= 9px #4e5972 IBMPlexMono            | B
+[y= 525, x=   8] sz= 9px #4e5972 IBMPlexMono            | C
+[y= 728, x=   8] sz= 9px #4e5972 IBMPlexMono            | D
+[y= 929, x=   8] sz= 9px #4e5972 IBMPlexMono            | E
+[y=1132, x=   8] sz= 9px #4e5972 IBMPlexMono            | F
+[y= 121, x=1773] sz= 9px #4e5972 IBMPlexMono            | A
+[y= 323, x=1773] sz= 9px #4e5972 IBMPlexMono            | B
+[y= 525, x=1773] sz= 9px #4e5972 IBMPlexMono            | C
+[y= 728, x=1773] sz= 9px #4e5972 IBMPlexMono            | D
+[y= 929, x=1773] sz= 9px #4e5972 IBMPlexMono            | E
+[y=1132, x=1773] sz= 9px #4e5972 IBMPlexMono            | F
+[y= 106, x=  52] sz=40px #ff3b25 Archivo-SemiBold_wght3 | AR/VR LAB
+[y= 107, x=  59] sz=40px #12b5e6 Archivo-SemiBold_wght3 | AR/VR LAB
+[y= 120, x=1504] sz= 3px #1b2944 Menlo                  | WEB
+[y= 263, x= 154] sz=15px #1b2944 IBMPlexMono-SemiBold   | 1
+[y= 505, x= 271] sz=15px #1b2944 IBMPlexMono-SemiBold   | 2
+[y= 505, x= 357] sz=15px #1b2944 IBMPlexMono-SemiBold   | 3
+[y= 286, x= 408] sz=15px #1b2944 IBMPlexMono-SemiBold   | 4
+[y= 505, x= 459] sz=15px #1b2944 IBMPlexMono-SemiBold   | 5
+[y= 313, x= 530] sz=15px #1b2944 IBMPlexMono-SemiBold   | 6
+[y= 209, x=  67] sz= 9px #4e5972 IBMPlexMono-Medium     | FIG. 1A · META QUEST 3
+[y= 419, x= 931] sz=15px #1b2944 IBMPlexMono-SemiBold   | 1
+[y= 430, x=1053] sz=15px #1b2944 IBMPlexMono-SemiBold   | 2
+[y= 302, x=1216] sz=15px #1b2944 IBMPlexMono-SemiBold   | 3
+[y= 505, x=1058] sz=15px #1b2944 IBMPlexMono-SemiBold   | 4
+[y= 505, x=1236] sz=15px #1b2944 IBMPlexMono-SemiBold   | 5
+[y= 302, x=1389] sz=15px #1b2944 IBMPlexMono-SemiBold   | 6
+[y= 209, x= 915] sz= 9px #4e5972 IBMPlexMono-Medium     | FIG. 1B · HTC VIVE PRO 2
+[y= 847, x=  82] sz=15px #1b2944 IBMPlexMono-SemiBold   | 1
+[y= 847, x= 205] sz=15px #1b2944 IBMPlexMono-SemiBold   | 2
+[y= 875, x= 306] sz=15px #1b2944 IBMPlexMono-SemiBold   | 3
+[y= 875, x= 398] sz=15px #1b2944 IBMPlexMono-SemiBold   | 4
+[y= 714, x= 469] sz=15px #1b2944 IBMPlexMono-SemiBold   | 5
+[y= 903, x= 530] sz=15px #1b2944 IBMPlexMono-SemiBold   | 6
+[y= 615, x=  67] sz= 9px #4e5972 IBMPlexMono-Medium     | FIG. 1C · MICROSOFT HOLOLENS 2
+[y= 886, x= 961] sz=15px #1b2944 IBMPlexMono-SemiBold   | 1
+[y= 842, x=1104] sz=15px #1b2944 IBMPlexMono-SemiBold   | 2
+[y= 911, x=1180] sz=15px #1b2944 IBMPlexMono-SemiBold   | 3
+[y= 714, x=1226] sz=15px #1b2944 IBMPlexMono-SemiBold   | 4
+[y= 911, x=1287] sz=15px #1b2944 IBMPlexMono-SemiBold   | 5
+[y= 714, x=1328] sz=15px #1b2944 IBMPlexMono-SemiBold   | 6
+[y= 831, x=1394] sz=15px #1b2944 IBMPlexMono-SemiBold   | 7
+[y= 615, x= 915] sz= 9px #4e5972 IBMPlexMono-Medium     | FIG. 1D · APPLE VISION PRO
+[y=1195, x=  55] sz= 8px #4e5972 IBMPlexMono            | 3D models via Sketchfab, CC BY 4.0: Meta Quest 3 by ElinHohler · HTC Vive Pro by EternalRealm (the lab's Vive Pro 2 shares its shell) · HoloLens 2 by muertoHambre · Apple Vision Pro by jnanbr07. Specs from the lab's device list.
+[y=1188, x=1232] sz= 7px #4e5972 IBMPlexMono            | TITLE
+[y=1200, x=1232] sz=11px #1b2944 Archivo-SemiBold_wght3 | FOUR HEADSETS, TAKEN APART
+[y=1188, x=1536] sz= 7px #4e5972 IBMPlexMono            | SHEET
+[y=1199, x=1536] sz= 9px #1b2944 IBMPlexMono            | 1 / 4
+[y=1188, x=1638] sz= 7px #4e5972 IBMPlexMono            | SCALE
+[y=1199, x=1638] sz= 9px #1b2944 IBMPlexMono            | NTS
+
+==================== PAGE 2 ====================
+[y=  79, x=  65] sz=10px #e8e2d0 IBMPlexMono-SemiBold   | DRG. NO. ARVR-001 · SHEET 2 / 4
+[y= 156, x=  55] sz=10px #1b2944 IBMPlexMono-SemiBold   | H I R A C H A N D D A U L A T L A B O R A T O R Y · C O E P T E C H
+[y=  59, x= 463] sz=10px #d13f29 IBMPlexMono-SemiBold   | S E C T I O N B · T H E R E S E A R C H
+[y=  75, x= 463] sz=42px #1b2944 Archivo-SemiBold_wght3 | Detail views: what we are building
+[y= 129, x= 463] sz=13px #4e5972 ArchivoRoman           | Six projects from the lab's own reports, from surgery planning to rider safety. Each one uses AR, VR or the computer vision behind them.
+[y=  86, x=1577] sz=15px #1b2944 Archivo-SemiBold_wght3 | Explore it in 3D
+[y= 109, x=1577] sz= 9px #4e5972 IBMPlexMono            | Scan for the interactive web brochure.
+[y= 217, x= 326] sz=11px #d13f29 IBMPlexMono-SemiBold   | ROBOTICS · META QUEST 3
+[y= 237, x= 326] sz=18px #1b2944 Archivo-SemiBold_wght3 | VR control of a
+[y= 258, x= 326] sz=18px #1b2944 Archivo-SemiBold_wght3 | collaborative robot
+[y= 287, x= 326] sz=10px #1b2944 ArchivoRoman           | The operator moves a virtual copy of the lab's cobot with Quest 3 controllers, and the real arm follows.
+[y= 576, x=  71] sz= 9px #4e5972 IBMPlexMono            | Viraj Bakshi, Prasad Patil, Amit Deshmukh, Pratiksha Jawale (research scholar) · 
+[y= 576, x= 530] sz= 9px #1b2944 IBMPlexMono-SemiBold   | Guide:
+[y= 591, x=  71] sz= 9px #4e5972 IBMPlexMono            | Dr. Shantipal S. Ohol
+[y= 217, x= 891] sz=11px #d13f29 IBMPlexMono-SemiBold   | WEARABLE ADAS · ROAD SAFETY
+[y= 237, x= 891] sz=18px #1b2944 Archivo-SemiBold_wght3 | AI glasses for smart
+[y= 258, x= 891] sz=18px #1b2944 Archivo-SemiBold_wght3 | mobility
+[y= 287, x= 891] sz=10px #1b2944 ArchivoRoman           | Two-wheelers are nearly two-thirds of vehicles on Indian roads. This wearable watches the road and warns the rider.
+[y= 591, x= 636] sz= 9px #4e5972 IBMPlexMono            | AR/VR Lab team · Computer vision, embedded AI, IMU and GPS
+[y= 217, x=1457] sz=11px #d13f29 IBMPlexMono-SemiBold   | MEDICAL AR · REGISTRATION
+[y= 237, x=1457] sz=18px #1b2944 Archivo-SemiBold_wght3 | MRI overlay for pre-
+[y= 258, x=1457] sz=18px #1b2944 Archivo-SemiBold_wght3 | surgical planning
+[y= 287, x=1457] sz=10px #1b2944 ArchivoRoman           | Surgeons plan an approach with the scan placed on the real patient.
+[y= 591, x=1202] sz= 9px #4e5972 IBMPlexMono            | Sharanya R. Dumbre Patil, M.Tech Instrumentation · 
+[y= 591, x=1491] sz= 9px #1b2944 IBMPlexMono-SemiBold   | Supervisor:
+[y= 591, x=1553] sz= 9px #4e5972 IBMPlexMono            |  Prof. U. M. Chaskar
+[y= 652, x= 326] sz=11px #d13f29 IBMPlexMono-SemiBold   | COMPUTER VISION · RGB + INFRARED
+[y= 674, x= 326] sz=18px #1b2944 Archivo-SemiBold_wght3 | Drone identification and
+[y= 694, x= 326] sz=18px #1b2944 Archivo-SemiBold_wght3 | threat response
+[y= 724, x= 326] sz=10px #1b2944 ArchivoRoman           | Reliable detection by day and night is the first step to any response.
+[y=1026, x=  71] sz= 9px #4e5972 IBMPlexMono            | Vaishnavi Taware · 
+[y=1026, x= 178] sz= 9px #1b2944 IBMPlexMono-SemiBold   | Guide:
+[y=1026, x= 212] sz= 9px #4e5972 IBMPlexMono            |  Prof. Sunil G. Bhirud
+[y= 652, x= 891] sz=11px #d13f29 IBMPlexMono-SemiBold   | COMPUTER VISION · TWO-WHEELERS
+[y= 674, x= 891] sz=18px #1b2944 Archivo-SemiBold_wght3 | Rear-view critical object
+[y= 694, x= 891] sz=18px #1b2944 Archivo-SemiBold_wght3 | detection
+[y= 724, x= 891] sz=10px #1b2944 ArchivoRoman           | A camera watches the road behind the rider, where mirrors can't reach.
+[y=1026, x= 636] sz= 9px #4e5972 IBMPlexMono            | Aditya Rahalkar, B.Tech Mechanical · 
+[y=1026, x= 846] sz= 9px #1b2944 IBMPlexMono-SemiBold   | Guides:
+[y=1026, x= 886] sz= 9px #4e5972 IBMPlexMono            |  Dr. S. S. Pardeshi, Dr. Sangeeta Mundra
+[y= 652, x=1457] sz=11px #d13f29 IBMPlexMono-SemiBold   | TEACHING · FINAL-YEAR B.TECH (R&amp;AI)
+[y= 690, x=1457] sz=18px #1b2944 Archivo-SemiBold_wght3 | AR-VR elective with
+[y= 710, x=1457] sz=18px #1b2944 Archivo-SemiBold_wght3 | Unity
+[y= 740, x=1457] sz=10px #1b2944 ArchivoRoman           | Students learn HCI, computer vision and graphics by building working AR/VR applications.
+[y=1026, x=1202] sz= 9px #1b2944 IBMPlexMono-SemiBold   | Faculty:
+[y=1026, x=1247] sz= 9px #4e5972 IBMPlexMono            |  Dr. Shubhangi Abhijit Deshmukh, Assistant Professor, E&amp;TC
+[y=   7, x= 132] sz= 9px #4e5972 IBMPlexMono            | 1
+[y=   7, x= 349] sz= 9px #4e5972 IBMPlexMono            | 2
+[y=   7, x= 565] sz= 9px #4e5972 IBMPlexMono            | 3
+[y=   7, x= 782] sz= 9px #4e5972 IBMPlexMono            | 4
+[y=   7, x= 999] sz= 9px #4e5972 IBMPlexMono            | 5
+[y=   7, x=1216] sz= 9px #4e5972 IBMPlexMono            | 6
+[y=   7, x=1433] sz= 9px #4e5972 IBMPlexMono            | 7
+[y=   7, x=1650] sz= 9px #4e5972 IBMPlexMono            | 8
+[y=1244, x= 132] sz= 9px #4e5972 IBMPlexMono            | 1
+[y=1244, x= 349] sz= 9px #4e5972 IBMPlexMono            | 2
+[y=1244, x= 565] sz= 9px #4e5972 IBMPlexMono            | 3
+[y=1244, x= 782] sz= 9px #4e5972 IBMPlexMono            | 4
+[y=1244, x= 999] sz= 9px #4e5972 IBMPlexMono            | 5
+[y=1244, x=1216] sz= 9px #4e5972 IBMPlexMono            | 6
+[y=1244, x=1433] sz= 9px #4e5972 IBMPlexMono            | 7
+[y=1244, x=1650] sz= 9px #4e5972 IBMPlexMono            | 8
+[y= 121, x=   8] sz= 9px #4e5972 IBMPlexMono            | A
+[y= 323, x=   8] sz= 9px #4e5972 IBMPlexMono            | B
+[y= 525, x=   8] sz= 9px #4e5972 IBMPlexMono            | C
+[y= 728, x=   8] sz= 9px #4e5972 IBMPlexMono            | D
+[y= 929, x=   8] sz= 9px #4e5972 IBMPlexMono            | E
+[y=1132, x=   8] sz= 9px #4e5972 IBMPlexMono            | F
+[y= 121, x=1773] sz= 9px #4e5972 IBMPlexMono            | A
+[y= 323, x=1773] sz= 9px #4e5972 IBMPlexMono            | B
+[y= 525, x=1773] sz= 9px #4e5972 IBMPlexMono            | C
+[y= 728, x=1773] sz= 9px #4e5972 IBMPlexMono            | D
+[y= 929, x=1773] sz= 9px #4e5972 IBMPlexMono            | E
+[y=1132, x=1773] sz= 9px #4e5972 IBMPlexMono            | F
+[y= 106, x=  52] sz=40px #ff3b25 Archivo-SemiBold_wght3 | AR/VR LAB
+[y= 107, x=  59] sz=40px #12b5e6 Archivo-SemiBold_wght3 | AR/VR LAB
+[y= 120, x=1504] sz= 3px #1b2944 Menlo                  | WEB
+[y= 472, x=  88] sz=10px #1b2944 ArchivoRoman           | Controller motion is sent to the robot as position deltas (DELTA).
+[y= 491, x=  88] sz=10px #1b2944 ArchivoRoman           | Two buttons send GRIP_OPEN and GRIP_CLOSE to the gripper.
+[y= 510, x=  88] sz=10px #1b2944 ArchivoRoman           | The robot reports CUR_POS back, so the virtual and real arms never drift.
+[y= 530, x=  88] sz=10px #1b2944 ArchivoRoman           | Clearer sense of the arm's path than voice or gesture control; easier to learn than a joystick.
+[y= 310, x= 758] sz= 8px #ffffff IBMPlexMono-SemiBold   | LMV 21 m
+[y= 330, x= 691] sz= 8px #ffffff IBMPlexMono-SemiBold   | RICK 11 m
+[y= 324, x= 759] sz= 8px #ffffff IBMPlexMono-SemiBold   | TW 5 m
+[y= 232, x= 711] sz= 9px #ff795d IBMPlexMono            | ALERT
+[y= 250, x= 647] sz= 7px #f2ede1 IBMPlexMono            | &#34;Two-wheeler close behind&#34;
+[y= 472, x= 653] sz=10px #1b2944 ArchivoRoman           | Perception: a camera feed and YOLO detection of vehicles, pedestrians and obstacles.
+[y= 491, x= 653] sz=10px #1b2944 ArchivoRoman           | Intelligence: distance from box size, speed and trajectory; crash detection from IMU data.
+[y= 510, x= 653] sz=10px #1b2944 ArchivoRoman           | Interface: audio alerts in the AI glasses and an automatic SOS with GPS location.
+[y= 530, x= 653] sz=10px #1b2944 ArchivoRoman           | Tested on the road: few false alerts and SOS within seconds of a crash.
+[y= 216, x=1197] sz= 9px #8fa2b8 IBMPlexMono            | AXIAL · T1
+[y= 441, x=1197] sz= 8px #5ccffb IBMPlexMono            | FIDUCIALS LOCKED
+[y= 472, x=1219] sz=10px #1b2944 ArchivoRoman           | Fiducial markers map virtual coordinates to real ones.
+[y= 491, x=1219] sz=10px #1b2944 ArchivoRoman           | Point pairs are picked, locked and aligned in an interactive UI.
+[y= 510, x=1219] sz=10px #1b2944 ArchivoRoman           | Rigid fit with the SVD-based Kabsch algorithm, refined by Iterative Closest Point.
+[y= 530, x=1219] sz=10px #1b2944 ArchivoRoman           | Registration accuracy is measured for every alignment.
+[y= 698, x= 120] sz=10px #ffffff IBMPlexMono-SemiBold   | drone
+[y= 648, x=  63] sz=10px #1b2944 IBMPlexMono-SemiBold   | RGB
+[y= 648, x= 285] sz=10px #ffc72e IBMPlexMono-SemiBold   | IR
+[y= 909, x=  88] sz=10px #1b2944 ArchivoRoman           | XL variants of YOLOv8, v9, v10, v11, v12 and YOLO26 under evaluation.
+[y= 928, x=  88] sz=10px #1b2944 ArchivoRoman           | Trained on an NVIDIA RTX 4090 with RGB and infrared drone datasets.
+[y= 947, x=  88] sz=10px #1b2944 ArchivoRoman           | Compared on precision, recall, mAP@50, mAP@50–95, inference time and complexity.
+[y= 909, x= 653] sz=10px #1b2944 ArchivoRoman           | YOLOv8 with tracking on Pune street footage.
+[y= 928, x= 653] sz=10px #1b2944 ArchivoRoman           | Classes: heavy vehicles (HMV), cars (LMV), auto-rickshaws (RICK), two-wheelers (TW).
+[y= 947, x= 653] sz=10px #1b2944 ArchivoRoman           | Dataset built for vehicle mix, lighting, augmentation and annotation.
+[y= 966, x= 653] sz=10px #1b2944 ArchivoRoman           | F1 score of 0.90 across all classes at a confidence of 0.469.
+[y= 667, x=1193] sz= 8px #c8c8d1 IBMPlexMono            | Hierarchy
+[y= 685, x=1195] sz= 7px #a8a8b3 Menlo                  | ▾
+[y= 684, x=1199] sz= 7px #a8a8b3 IBMPlexMono            |  Universe
+[y= 697, x=1202] sz= 7px #ffb12e IBMPlexMono            | Sun
+[y= 710, x=1202] sz= 7px #a8a8b3 IBMPlexMono            | Earth
+[y= 722, x=1208] sz= 7px #a8a8b3 IBMPlexMono            | Moon
+[y= 735, x=1202] sz= 7px #a8a8b3 IBMPlexMono            | Mars Saturn
+[y= 763, x=1195] sz= 7px #a8a8b3 IBMPlexMono            | AR Camera Plane Finder
+[y= 668, x=1255] sz= 8px #c8c8d1 IBMPlexMono            | Scene
+[y= 877, x=1255] sz= 7px #8fa2b8 IBMPlexMono            | Unity 6 · AR Foundation
+[y= 909, x=1219] sz=10px #1b2944 ArchivoRoman           | Path: install Unity Hub, basics, an AR project (a 3D universe), samples, scenarios, a working executable.
+[y= 928, x=1219] sz=10px #1b2944 ArchivoRoman           | Unity 6 with a one-year learning licence; RTX 3050 or better recommended.
+[y= 947, x=1219] sz=10px #1b2944 ArchivoRoman           | Proposed: project-based evaluation instead of a theory paper.
+[y= 966, x=1219] sz=10px #1b2944 ArchivoRoman           | Industry link: training and internship talks with Who VR.
+[y=1209, x=  55] sz= 8px #4e5972 IBMPlexMono            | Project details from the AR/VR Lab's project reports. The cobot scene and the street detections are the teams' own images; the other four pictures are illustrations.
+[y=1175, x=1232] sz= 7px #4e5972 IBMPlexMono            | TITLE
+[y=1187, x=1232] sz= 9px #1b2944 Archivo-SemiBold_wght3 | DETAIL VIEWS: WHAT WE ARE BUILDING
+[y=1175, x=1536] sz= 7px #4e5972 IBMPlexMono            | SHEET
+[y=1184, x=1536] sz= 9px #1b2944 IBMPlexMono            | 2 / 4
+[y=1175, x=1638] sz= 7px #4e5972 IBMPlexMono            | SCALE
+[y=1184, x=1638] sz= 9px #1b2944 IBMPlexMono            | NTS
+[y= 429, x= 283] sz=12px #e8e2d0 IBMPlexMono            | A
+[y= 429, x= 849] sz=12px #e8e2d0 IBMPlexMono            | B
+[y= 429, x=1414] sz=12px #e8e2d0 IBMPlexMono            | C
+[y= 864, x= 283] sz=12px #e8e2d0 IBMPlexMono            | D
+[y= 864, x= 849] sz=12px #e8e2d0 IBMPlexMono            | E
+[y= 864, x=1414] sz=12px #e8e2d0 IBMPlexMono            | F
+
+==================== PAGE 3 ====================
+[y= 122, x=  65] sz=10px #e8e2d0 IBMPlexMono-SemiBold   | DRG. NO. ARVR-001 · SHEET 3 / 4
+[y= 199, x=  55] sz=10px #1b2944 IBMPlexMono-SemiBold   | H I R A C H A N D D A U L A T L A B O R A T O R Y · C O E P T E C H
+[y=  59, x= 463] sz=10px #d13f29 IBMPlexMono-SemiBold   | S E C T I O N C · T H E L A B
+[y=  74, x= 463] sz=43px #1b2944 Archivo-SemiBold_wght3 | Why AR/VR, and where we are
+[y= 117, x= 463] sz=43px #1b2944 Archivo-SemiBold_wght3 | going
+[y= 172, x= 463] sz=13px #4e5972 ArchivoRoman           | AR overlays digital content on the real world; VR places you inside a simulated one. Here is why that matters to engineers, and the lab's plan for the next five years.
+[y= 129, x=1577] sz=15px #1b2944 Archivo-SemiBold_wght3 | Explore it in 3D
+[y= 152, x=1577] sz= 9px #4e5972 IBMPlexMono            | Scan for the interactive web brochure.
+[y= 257, x=  58] sz=13px #1b2944 Archivo-SemiBold_wght3 | C1
+[y= 250, x= 100] sz=21px #1b2944 Archivo-SemiBold_wght3 | Why AR/VR in engineering?
+[y= 364, x=  73] sz=15px #1b2944 ArchivoRoman-ExtraBold | Design before you build
+[y= 388, x=  73] sz=11px #4e5972 ArchivoRoman           | Walk around a full-scale 3D prototype and catch clashes and errors 
+[y= 406, x= 208] sz=11px #1b2944 Archivo-SemiBold_wght2 | before metal is
+[y= 424, x=  73] sz=11px #1b2944 Archivo-SemiBold_wght2 | cut
+[y= 424, x=  92] sz=11px #4e5972 ArchivoRoman           | , saving time and cost.
+[y= 364, x= 360] sz=15px #1b2944 ArchivoRoman-ExtraBold | Train without the risk
+[y= 388, x= 360] sz=11px #4e5972 ArchivoRoman           | Practise surgery, machine operation or assembly in simulation, as many times as needed, 
+[y= 424, x= 407] sz=11px #1b2944 Archivo-SemiBold_wght2 | with nothing to break
+[y= 424, x= 526] sz=11px #4e5972 ArchivoRoman           | .
+[y= 586, x=  73] sz=15px #1b2944 ArchivoRoman-ExtraBold | See what is invisible
+[y= 609, x=  73] sz=11px #4e5972 ArchivoRoman           | Overlay scan data, stress or flow fields onto real objects, 
+[y= 627, x= 142] sz=11px #1b2944 Archivo-SemiBold_wght2 | as in our MRI overlay project
+[y= 627, x= 303] sz=11px #4e5972 ArchivoRoman           | .
+[y= 586, x= 360] sz=15px #1b2944 ArchivoRoman-ExtraBold | Control machines at a
+[y= 604, x= 360] sz=15px #1b2944 ArchivoRoman-ExtraBold | distance
+[y= 627, x= 360] sz=11px #4e5972 ArchivoRoman           | Teleoperate robots with natural hand movement, 
+[y= 645, x= 424] sz=11px #1b2944 Archivo-SemiBold_wght2 | as the lab does with its cobot
+[y= 645, x= 588] sz=11px #4e5972 ArchivoRoman           | .
+[y= 807, x=  73] sz=15px #1b2944 ArchivoRoman-ExtraBold | Guide hands on the shop floor
+[y= 831, x=  73] sz=11px #4e5972 ArchivoRoman           | Step-by-step AR instructions for assembly and maintenance 
+[y= 849, x= 170] sz=11px #1b2944 Archivo-SemiBold_wght2 | reduce errors and
+[y= 867, x=  73] sz=11px #1b2944 Archivo-SemiBold_wght2 | training time
+[y= 867, x= 145] sz=11px #4e5972 ArchivoRoman           | .
+[y= 807, x= 360] sz=15px #1b2944 ArchivoRoman-ExtraBold | Make people safer
+[y= 831, x= 360] sz=11px #4e5972 ArchivoRoman           | Perception and timely alerts protect riders and workers, 
+[y= 849, x= 432] sz=11px #1b2944 Archivo-SemiBold_wght2 | as in our AI glasses for two-
+[y= 867, x= 360] sz=11px #1b2944 Archivo-SemiBold_wght2 | wheelers
+[y= 867, x= 412] sz=11px #4e5972 ArchivoRoman           | .
+[y= 975, x=  69] sz=10px #4e5972 IBMPlexMono            | WHERE IT IS ALREADY USED
+[y= 999, x=  79] sz=10px #1b2944 IBMPlexMono-Medium     | Healthcare and surgical training
+[y= 999, x= 299] sz=10px #1b2944 IBMPlexMono-Medium     | Education
+[y= 999, x= 378] sz=10px #1b2944 IBMPlexMono-Medium     | Architecture
+[y= 999, x= 476] sz=10px #1b2944 IBMPlexMono-Medium     | Engineering design
+[y=1025, x=  79] sz=10px #1b2944 IBMPlexMono-Medium     | Manufacturing and assembly lines
+[y=1025, x= 299] sz=10px #1b2944 IBMPlexMono-Medium     | Automotive
+[y=1025, x= 384] sz=10px #1b2944 IBMPlexMono-Medium     | Corporate training
+[y=1050, x=  79] sz=10px #1b2944 IBMPlexMono-Medium     | Real estate walkthroughs
+[y=1075, x=  69] sz=10px #4e5972 IBMPlexMono            | Global hubs: Silicon Valley, Seattle, Los Angeles, Tokyo, Seoul, Shenzhen, London, Berlin, Tel Aviv. In India, Digital India and Startup India are growing the ecosystem, while cost, awareness and a shortage of skills hold adoption back. Building those skills is this lab's job.
+[y= 257, x= 645] sz=13px #1b2944 Archivo-SemiBold_wght3 | C2
+[y= 250, x= 687] sz=21px #1b2944 Archivo-SemiBold_wght3 | Revision table: the five-year plan
+[y= 494, x= 660] sz=10px #4e5972 IBMPlexMono-SemiBold   | FIVE STEPS TO A CENTRE OF EXCELLENCE
+[y= 620, x= 668] sz=10px #4e5972 IBMPlexMono-SemiBold   | 01
+[y= 632, x= 668] sz=11px #1b2944 Archivo-SemiBold_wght2 | Research centre
+[y= 608, x= 793] sz=10px #4e5972 IBMPlexMono-SemiBold   | 02
+[y= 620, x= 793] sz=11px #1b2944 Archivo-SemiBold_wght2 | Knowledge
+[y= 633, x= 793] sz=11px #1b2944 Archivo-SemiBold_wght2 | transfer centre
+[y= 594, x= 918] sz=10px #4e5972 IBMPlexMono-SemiBold   | 03
+[y= 606, x= 918] sz=11px #1b2944 Archivo-SemiBold_wght2 | Industry hub
+[y= 582, x=1042] sz=10px #4e5972 IBMPlexMono-SemiBold   | 04
+[y= 594, x=1042] sz=11px #1b2944 Archivo-SemiBold_wght2 | Notable IP contribution
+[y= 570, x=1167] sz=10px #e8e2d0 IBMPlexMono-SemiBold   | 05
+[y= 581, x=1167] sz=11px #e8e2d0 Archivo-SemiBold_wght2 | Internationally
+[y= 595, x=1167] sz=11px #e8e2d0 Archivo-SemiBold_wght2 | recognised CoE
+[y= 728, x= 660] sz=10px #4e5972 IBMPlexMono-SemiBold   | FIVE-POINT INITIATIVE PROGRAMMES
+[y= 814, x= 670] sz= 9px #d13f29 IBMPlexMono-SemiBold   | 01
+[y= 828, x= 670] sz=13px #1b2944 Archivo-SemiBold_wght2 | Research
+[y= 849, x= 670] sz=10px #4e5972 ArchivoRoman           | Key research titles for IP and publications
+[y= 814, x= 795] sz= 9px #d13f29 IBMPlexMono-SemiBold   | 02
+[y= 828, x= 795] sz=13px #1b2944 Archivo-SemiBold_wght2 | Learning and
+[y= 844, x= 795] sz=13px #1b2944 Archivo-SemiBold_wght2 | development
+[y= 864, x= 795] sz=10px #4e5972 ArchivoRoman           | Webinars, courses, FDPs and ToT trainings
+[y= 814, x= 919] sz= 9px #d13f29 IBMPlexMono-SemiBold   | 03
+[y= 828, x= 919] sz=13px #1b2944 Archivo-SemiBold_wght2 | Consultancy
+[y= 849, x= 919] sz=10px #4e5972 ArchivoRoman           | Helping businesses adopt AR/VR
+[y= 814, x=1043] sz= 9px #d13f29 IBMPlexMono-SemiBold   | 04
+[y= 828, x=1043] sz=13px #1b2944 Archivo-SemiBold_wght2 | Technology
+[y= 844, x=1043] sz=13px #1b2944 Archivo-SemiBold_wght2 | transfer
+[y= 864, x=1043] sz=10px #4e5972 ArchivoRoman           | Partnerships with international institutes
+[y= 814, x=1166] sz= 9px #d13f29 IBMPlexMono-SemiBold   | 05
+[y= 828, x=1166] sz=13px #1b2944 Archivo-SemiBold_wght2 | International
+[y= 844, x=1166] sz=13px #1b2944 Archivo-SemiBold_wght2 | conference
+[y= 864, x=1166] sz=10px #4e5972 ArchivoRoman           | Hosting a technical conference on AR/VR
+[y= 979, x= 660] sz=10px #4e5972 IBMPlexMono-SemiBold   | OBJECTIVES
+[y=1054, x= 671] sz=10px #1b2944 IBMPlexMono-Medium     | Innovation and research
+[y=1054, x= 839] sz=10px #1b2944 IBMPlexMono-Medium     | Skill development and training
+[y=1054, x=1050] sz=10px #1b2944 IBMPlexMono-Medium     | Best practices and standards
+[y=1082, x= 671] sz=10px #1b2944 IBMPlexMono-Medium     | Collaboration and ecosystem building
+[y=1082, x= 919] sz=10px #1b2944 IBMPlexMono-Medium     | Industry solutions, prototypes and PoCs
+[y=1111, x= 671] sz=10px #1b2944 IBMPlexMono-Medium     | Market awareness and advocacy
+[y= 257, x=1325] sz=13px #1b2944 Archivo-SemiBold_wght3 | C3
+[y= 250, x=1367] sz=21px #1b2944 Archivo-SemiBold_wght3 | In memory
+[y= 308, x=1515] sz=13px #d13f29 IBMPlexMono-SemiBold   | 14.04.1932 – 11.05.2021
+[y= 354, x=1515] sz=17px #1b2944 Archivo-SemiBold_wght3 | Shri Hirachand Daulat
+[y= 409, x=1515] sz=12px #1b2944 ArchivoRoman           | A 1955 Mechanical Engineering graduate of COEP. His children,
+[y= 449, x=1515] sz=12px #1b2944 ArchivoRoman           | Dr. Jaldeep and Neeta Daulat
+[y= 449, x=1695] sz=12px #1b2944 ArchivoRoman           | ,
+[y= 468, x=1515] sz=12px #1b2944 ArchivoRoman           | founded this laboratory in his memory, in the department where he studied.
+[y= 532, x=1515] sz=10px #4e5972 IBMPlexMono            | Supported by Shri Mangesh Gandhi, Mechanical Engineering, 1979.
+[y= 612, x=1336] sz=22px #1b2944 Archivo-SemiBold_wght3 | 4
+[y= 646, x=1336] sz= 9px #4e5972 IBMPlexMono-Medium     | XR HEADSETS: VR, AR, MR
+[y= 612, x=1540] sz=22px #1b2944 Archivo-SemiBold_wght3 | 6
+[y= 646, x=1540] sz= 9px #4e5972 IBMPlexMono-Medium     | RESEARCH AND TEACHING PROJECTS
+[y= 684, x=1336] sz=22px #1b2944 Archivo-SemiBold_wght3 | RTX 4090
+[y= 749, x=1336] sz= 9px #4e5972 IBMPlexMono-Medium     | GPU FOR MODEL TRAINING
+[y= 684, x=1540] sz=22px #1b2944 Archivo-SemiBold_wght3 | 2028
+[y= 718, x=1540] sz= 9px #4e5972 IBMPlexMono-Medium     | TARGET: INDUSTRY HUB
+[y= 804, x=1336] sz=10px #1b2944 Archivo-SemiBold_wght3 | Visit the lab
+[y= 819, x=1336] sz=10px #1b2944 IBMPlexMono            | Dept. of Mechanical Engineering, COEP Technological University, Shivajinagar, Pune Room 
+[y= 850, x=1367] sz=10px #d13f29 IBMPlexMono            | [___]
+[y= 850, x=1397] sz=10px #1b2944 IBMPlexMono            |  · Hours 
+[y= 850, x=1452] sz=10px #d13f29 IBMPlexMono            | [___]
+[y= 850, x=1483] sz=10px #1b2944 IBMPlexMono            |  · Contact 
+[y= 850, x=1550] sz=10px #d13f29 IBMPlexMono            | [___]
+[y=   7, x= 132] sz= 9px #4e5972 IBMPlexMono            | 1
+[y=   7, x= 349] sz= 9px #4e5972 IBMPlexMono            | 2
+[y=   7, x= 565] sz= 9px #4e5972 IBMPlexMono            | 3
+[y=   7, x= 782] sz= 9px #4e5972 IBMPlexMono            | 4
+[y=   7, x= 999] sz= 9px #4e5972 IBMPlexMono            | 5
+[y=   7, x=1216] sz= 9px #4e5972 IBMPlexMono            | 6
+[y=   7, x=1433] sz= 9px #4e5972 IBMPlexMono            | 7
+[y=   7, x=1650] sz= 9px #4e5972 IBMPlexMono            | 8
+[y=1244, x= 132] sz= 9px #4e5972 IBMPlexMono            | 1
+[y=1244, x= 349] sz= 9px #4e5972 IBMPlexMono            | 2
+[y=1244, x= 565] sz= 9px #4e5972 IBMPlexMono            | 3
+[y=1244, x= 782] sz= 9px #4e5972 IBMPlexMono            | 4
+[y=1244, x= 999] sz= 9px #4e5972 IBMPlexMono            | 5
+[y=1244, x=1216] sz= 9px #4e5972 IBMPlexMono            | 6
+[y=1244, x=1433] sz= 9px #4e5972 IBMPlexMono            | 7
+[y=1244, x=1650] sz= 9px #4e5972 IBMPlexMono            | 8
+[y= 121, x=   8] sz= 9px #4e5972 IBMPlexMono            | A
+[y= 323, x=   8] sz= 9px #4e5972 IBMPlexMono            | B
+[y= 525, x=   8] sz= 9px #4e5972 IBMPlexMono            | C
+[y= 728, x=   8] sz= 9px #4e5972 IBMPlexMono            | D
+[y= 929, x=   8] sz= 9px #4e5972 IBMPlexMono            | E
+[y=1132, x=   8] sz= 9px #4e5972 IBMPlexMono            | F
+[y= 121, x=1773] sz= 9px #4e5972 IBMPlexMono            | A
+[y= 323, x=1773] sz= 9px #4e5972 IBMPlexMono            | B
+[y= 525, x=1773] sz= 9px #4e5972 IBMPlexMono            | C
+[y= 728, x=1773] sz= 9px #4e5972 IBMPlexMono            | D
+[y= 929, x=1773] sz= 9px #4e5972 IBMPlexMono            | E
+[y=1132, x=1773] sz= 9px #4e5972 IBMPlexMono            | F
+[y= 149, x=  52] sz=40px #ff3b25 Archivo-SemiBold_wght3 | AR/VR LAB
+[y= 150, x=  59] sz=40px #12b5e6 Archivo-SemiBold_wght3 | AR/VR LAB
+[y= 162, x=1504] sz= 3px #1b2944 Menlo                  | WEB
+[y= 301, x=1022] sz= 8px #d13f29 IBMPlexMono-SemiBold   | TODAY · SEP 2026
+[y= 348, x= 709] sz=13px #1b2944 IBMPlexMono-SemiBold   | 2024
+[y= 369, x= 713] sz= 8px #4e5972 IBMPlexMono            | REV A
+[y= 384, x= 672] sz=12px #1b2944 ArchivoRoman           | Set up the CoE and
+[y= 400, x= 670] sz=12px #1b2944 ArchivoRoman           | research framework
+[y= 348, x= 831] sz=13px #1b2944 IBMPlexMono-SemiBold   | 2025
+[y= 369, x= 835] sz= 8px #4e5972 IBMPlexMono            | REV B
+[y= 384, x= 809] sz=12px #1b2944 ArchivoRoman           | Webinars and
+[y= 400, x= 823] sz=12px #1b2944 ArchivoRoman           | trainings
+[y= 348, x= 953] sz=13px #1b2944 IBMPlexMono-SemiBold   | 2026
+[y= 369, x= 957] sz= 8px #4e5972 IBMPlexMono            | REV C
+[y= 384, x= 913] sz=12px #1b2944 ArchivoRoman           | PG and professional
+[y= 400, x= 937] sz=12px #1b2944 ArchivoRoman           | certification
+[y= 348, x=1075] sz=13px #1b2944 IBMPlexMono-SemiBold   | 2027
+[y= 369, x=1079] sz= 8px #4e5972 IBMPlexMono            | REV D
+[y= 384, x=1057] sz=12px #1b2944 ArchivoRoman           | International
+[y= 400, x=1038] sz=12px #1b2944 ArchivoRoman           | technology transfer
+[y= 348, x=1197] sz=13px #1b2944 IBMPlexMono-SemiBold   | 2028
+[y= 369, x=1201] sz= 8px #4e5972 IBMPlexMono            | REV E
+[y= 384, x=1171] sz=12px #1b2944 ArchivoRoman           | State-of-the-art
+[y= 400, x=1170] sz=12px #1b2944 ArchivoRoman           | industry hub for
+[y= 415, x=1194] sz=12px #1b2944 ArchivoRoman           | AR/VR
+[y=1209, x=  55] sz= 8px #4e5972 IBMPlexMono            | Plan, programmes, objectives and context from the lab's presentation (Mechanical Engineering Department, COEP Technological University).
+[y=1175, x=1232] sz= 7px #4e5972 IBMPlexMono            | TITLE
+[y=1185, x=1232] sz=12px #1b2944 Archivo-SemiBold_wght3 | WHY AR/VR, AND WHERE WE ARE
+[y=1199, x=1232] sz=12px #1b2944 Archivo-SemiBold_wght3 | GOING
+[y=1175, x=1536] sz= 7px #4e5972 IBMPlexMono            | SHEET
+[y=1184, x=1536] sz= 9px #1b2944 IBMPlexMono            | 3 / 4
+[y=1175, x=1638] sz= 7px #4e5972 IBMPlexMono            | SCALE
+[y=1184, x=1638] sz= 9px #1b2944 IBMPlexMono            | NTS
+
+==================== PAGE 4 ====================
+[y=  56, x=  65] sz=10px #e8e2d0 IBMPlexMono-SemiBold   | DRG. NO. ARVR-001 · SHEET 4 / 4
+[y= 175, x=  55] sz=13px #1b2944 IBMPlexMono-SemiBold   | H I R A C H A N D D A U L A T A R / V R L A B · C O E P T E C H , P U N E
+[y= 159, x=1245] sz=11px #4e5972 IBMPlexMono-Medium     | Two codes, two ways in. Open your phone camera and point it at either code.
+[y= 176, x=1607] sz=11px #4e5972 IBMPlexMono-Medium     | Nothing to install.
+[y=1043, x=  96] sz=12px #1b2944 IBMPlexMono            | AR
+[y=1035, x= 143] sz=14px #1b2944 Archivo-SemiBold_wght3 | Augmented reality
+[y=1053, x= 143] sz=10px #4e5972 ArchivoRoman           | Digital objects placed in the real world, seen through your phone or a HoloLens 2.
+[y=1043, x= 660] sz=12px #1b2944 IBMPlexMono            | VR
+[y=1035, x= 707] sz=14px #1b2944 Archivo-SemiBold_wght3 | Virtual reality
+[y=1053, x= 707] sz=10px #4e5972 ArchivoRoman           | A fully simulated world. Try it in the lab on the Meta Quest 3 or HTC Vive Pro 2.
+[y=1043, x=1224] sz=12px #1b2944 IBMPlexMono            | MR
+[y=1035, x=1271] sz=14px #1b2944 Archivo-SemiBold_wght3 | Mixed reality
+[y=1053, x=1271] sz=10px #4e5972 ArchivoRoman           | Virtual objects that react to the real room, as on the Apple Vision Pro and Quest 3.
+[y=   7, x= 132] sz= 9px #4e5972 IBMPlexMono            | 1
+[y=   7, x= 349] sz= 9px #4e5972 IBMPlexMono            | 2
+[y=   7, x= 565] sz= 9px #4e5972 IBMPlexMono            | 3
+[y=   7, x= 782] sz= 9px #4e5972 IBMPlexMono            | 4
+[y=   7, x= 999] sz= 9px #4e5972 IBMPlexMono            | 5
+[y=   7, x=1216] sz= 9px #4e5972 IBMPlexMono            | 6
+[y=   7, x=1433] sz= 9px #4e5972 IBMPlexMono            | 7
+[y=   7, x=1650] sz= 9px #4e5972 IBMPlexMono            | 8
+[y=1244, x= 132] sz= 9px #4e5972 IBMPlexMono            | 1
+[y=1244, x= 349] sz= 9px #4e5972 IBMPlexMono            | 2
+[y=1244, x= 565] sz= 9px #4e5972 IBMPlexMono            | 3
+[y=1244, x= 782] sz= 9px #4e5972 IBMPlexMono            | 4
+[y=1244, x= 999] sz= 9px #4e5972 IBMPlexMono            | 5
+[y=1244, x=1216] sz= 9px #4e5972 IBMPlexMono            | 6
+[y=1244, x=1433] sz= 9px #4e5972 IBMPlexMono            | 7
+[y=1244, x=1650] sz= 9px #4e5972 IBMPlexMono            | 8
+[y= 121, x=   8] sz= 9px #4e5972 IBMPlexMono            | A
+[y= 323, x=   8] sz= 9px #4e5972 IBMPlexMono            | B
+[y= 525, x=   8] sz= 9px #4e5972 IBMPlexMono            | C
+[y= 728, x=   8] sz= 9px #4e5972 IBMPlexMono            | D
+[y= 929, x=   8] sz= 9px #4e5972 IBMPlexMono            | E
+[y=1132, x=   8] sz= 9px #4e5972 IBMPlexMono            | F
+[y= 121, x=1773] sz= 9px #4e5972 IBMPlexMono            | A
+[y= 323, x=1773] sz= 9px #4e5972 IBMPlexMono            | B
+[y= 525, x=1773] sz= 9px #4e5972 IBMPlexMono            | C
+[y= 728, x=1773] sz= 9px #4e5972 IBMPlexMono            | D
+[y= 929, x=1773] sz= 9px #4e5972 IBMPlexMono            | E
+[y=1132, x=1773] sz= 9px #4e5972 IBMPlexMono            | F
+[y=  94, x=  50] sz=66px #ff3b25 Archivo-SemiBold_wght3 | SCAN · STEP INSIDE
+[y=  96, x=  61] sz=66px #12b5e6 Archivo-SemiBold_wght3 | SCAN · STEP INSIDE
+[y= 276, x= 622] sz=10px #d13f29 IBMPlexMono-SemiBold   | CODE 1 · AR
+[y= 293, x= 622] sz=35px #1b2944 Archivo-SemiBold_wght3 | The lab,
+[y= 329, x= 622] sz=35px #1b2944 Archivo-SemiBold_wght3 | in your
+[y= 364, x= 622] sz=35px #1b2944 Archivo-SemiBold_wght3 | room
+[y= 418, x= 622] sz=12px #1b2944 ArchivoRoman           | Place any of the lab's four headsets on a real table at life size, then explode it into its parts and walk around it.
+[y= 521, x= 630] sz=10px #d13f29 IBMPlexMono            | 01
+[y= 513, x= 664] sz=11px #1b2944 ArchivoRoman           | Scan, then tap 
+[y= 513, x= 743] sz=11px #1b2944 ArchivoRoman           | View in your
+[y= 528, x= 664] sz=11px #1b2944 ArchivoRoman           | room
+[y= 528, x= 694] sz=11px #1b2944 ArchivoRoman           | .
+[y= 562, x= 630] sz=10px #d13f29 IBMPlexMono            | 02
+[y= 553, x= 664] sz=11px #1b2944 ArchivoRoman           | Move the phone over a table or the floor.
+[y= 602, x= 630] sz=10px #d13f29 IBMPlexMono            | 03
+[y= 595, x= 664] sz=11px #1b2944 ArchivoRoman           | Walk around it; switch to
+[y= 611, x= 664] sz=11px #1b2944 ArchivoRoman           | Exploded
+[y= 611, x= 719] sz=11px #1b2944 ArchivoRoman           | .
+[y= 840, x= 622] sz=10px #4e5972 IBMPlexMono            | Works on Android phones with Google Play Services for AR, and on iPhone or iPad with iOS 12 or later.
+[y= 894, x= 622] sz= 8px #4e5972 IBMPlexMono-Medium     | OR TYPE
+[y= 906, x= 622] sz=11px #1b2944 IBMPlexMono            | adityapathare46.github.io/coep
+[y= 921, x= 622] sz=11px #1b2944 IBMPlexMono            | -arvr-lab/ar
+[y= 237, x=  95] sz=11px #ffffff IBMPlexMono            | A U G M E N T E D R E A L I T Y
+[y= 567, x= 327] sz=15px #1b2944 Menlo                  | AR
+[y= 276, x=1460] sz=10px #1590b9 IBMPlexMono-SemiBold   | CODE 2 · WEB
+[y= 293, x=1460] sz=35px #1b2944 Archivo-SemiBold_wght3 | The whole
+[y= 329, x=1460] sz=35px #1b2944 Archivo-SemiBold_wght3 | lab,
+[y= 364, x=1460] sz=35px #1b2944 Archivo-SemiBold_wght3 | interactive
+[y= 418, x=1460] sz=12px #1b2944 ArchivoRoman           | Take all four headsets apart in 3D, compare their specs, and try working models of the lab's research projects.
+[y= 500, x=1469] sz=10px #1590b9 IBMPlexMono            | 01
+[y= 499, x=1503] sz=11px #1b2944 ArchivoRoman           | Scan to open the brochure.
+[y= 539, x=1469] sz=10px #1590b9 IBMPlexMono            | 02
+[y= 531, x=1503] sz=11px #1b2944 ArchivoRoman           | Pick a headset and drag the explode slider.
+[y= 581, x=1469] sz=10px #1590b9 IBMPlexMono            | 03
+[y= 572, x=1503] sz=11px #1b2944 ArchivoRoman           | Try the cobot, MRI and rider-safety demos.
+[y= 817, x=1460] sz=10px #4e5972 IBMPlexMono            | Works in any modern browser on phones, tablets and laptops.
+[y= 857, x=1460] sz= 8px #4e5972 IBMPlexMono-Medium     | OR TYPE
+[y= 869, x=1460] sz=11px #1b2944 IBMPlexMono            | adityapathare46.github.io/coep-arvr
+[y= 884, x=1460] sz=11px #1b2944 IBMPlexMono            | -lab
+[y= 237, x= 933] sz=11px #ffffff IBMPlexMono            | W E B B R O C H U R E
+[y= 566, x=1160] sz=15px #1b2944 Menlo                  | WEB
+[y=1209, x=  55] sz= 8px #4e5972 IBMPlexMono            | Both codes use high error correction and were test-decoded before printing. 3D models via Sketchfab, CC BY 4.0.
+[y=1188, x=1232] sz= 7px #4e5972 IBMPlexMono            | TITLE
+[y=1202, x=1232] sz= 9px #1b2944 Archivo-SemiBold_wght3 | SCAN · STEP INSIDE
+[y=1188, x=1536] sz= 7px #4e5972 IBMPlexMono            | SHEET
+[y=1199, x=1536] sz= 9px #1b2944 IBMPlexMono            | 4 / 4
+[y=1188, x=1638] sz= 7px #4e5972 IBMPlexMono            | SCALE
+[y=1199, x=1638] sz= 9px #1b2944 IBMPlexMono            | NTS

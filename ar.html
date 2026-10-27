@@ -3,206 +3,471 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>COEP Tech Laser Lab · 3D Augmented Reality Explorer</title>
-  <meta name="description" content="Augmented Reality and 3D exploded view explorer for the Nd:YAG 4-Axis Gantry and Fiber Laser Apparatus.">
+  <title>COEP Tech Laser Lab · 3D Augmented Reality Apparatus Viewport</title>
+  <meta name="description" content="Augmented Reality and 3D exploded view interactive viewport for the Nd:YAG 4-Axis Gantry and Industrial Fiber Laser apparatus.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="three.min.js"></script>
+  <script src="OrbitControls.js"></script>
+  <script>
+    if (typeof THREE === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');
+      document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"><\/script>');
+    }
+  </script>
+
   <style>
+    :root {
+      --bg-drafting: #E6DFCE;
+      --bg-grid-minor: rgba(27, 42, 68, 0.08);
+      --bg-grid-major: rgba(27, 42, 68, 0.16);
+      --ink-navy: #1B2A44;
+      --ink-slate: #4E5A72;
+      --border-navy: #1B2A44;
+      --border-cream: #C8BFA8;
+      --accent-red: #D13F29;
+      --accent-red-hover: #b9331e;
+      --accent-cyan: #1590B9;
+      --card-bg: #FBF8F0;
+      --card-white: #FFFFFF;
+      --font-mono: 'Fira Code', Consolas, monospace;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background: #0b111e;
-      color: #f1f5f9;
-      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-drafting);
+      background-image: 
+        linear-gradient(to right, var(--bg-grid-minor) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--bg-grid-minor) 1px, transparent 1px),
+        linear-gradient(to right, var(--bg-grid-major) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--bg-grid-major) 1px, transparent 1px);
+      background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+      color: var(--ink-navy);
+      font-family: var(--font-sans);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
+
     header {
-      background: rgba(19, 29, 49, 0.95);
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid #233554;
+      background: var(--ink-navy);
+      color: #FFFFFF;
+      padding: 1rem 1.75rem;
+      border-bottom: 2px solid var(--border-navy);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
+
     .brand {
-      font-family: 'Fira Code', monospace;
-      font-size: 0.8rem;
-      color: #06b6d4;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #79D4F2;
+      letter-spacing: 1px;
+      font-weight: 600;
     }
+
     .title {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 800;
-      color: white;
+      color: #FFFFFF;
     }
+
     .back-btn {
-      color: #94a3b8;
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.12);
       text-decoration: none;
-      font-size: 0.85rem;
-      font-family: 'Fira Code', monospace;
-      padding: 0.4rem 0.8rem;
-      border: 1px solid #233554;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 4px;
+      transition: all 0.15s ease;
     }
+
+    .back-btn:hover {
+      background: #FFFFFF;
+      color: var(--ink-navy);
+    }
+
     .ar-view-container {
       flex: 1;
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
-    }
-    canvas {
+      max-width: 1200px;
+      margin: 0 auto;
       width: 100%;
-      max-width: 800px;
-      height: 480px;
-      background: radial-gradient(circle at center, #1e293b 0%, #090e17 100%);
-      border-radius: 12px;
-      border: 1px solid #233554;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
+
+    .canvas-card {
+      width: 100%;
+      background: var(--card-white);
+      border: 2px solid var(--border-navy);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 4px 6px 0px rgba(27, 42, 68, 0.18);
+      height: 520px;
+    }
+
+    #arThreeCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .viewport-overlay {
+      position: absolute;
+      top: 0.8rem;
+      left: 0.8rem;
+      background: rgba(251, 248, 240, 0.95);
+      border: 1.5px solid var(--border-navy);
+      padding: 0.4rem 0.8rem;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--ink-navy);
+      pointer-events: none;
+    }
+
     .controls-bar {
-      margin-top: 1.5rem;
+      margin-top: 1.25rem;
       display: flex;
       gap: 1rem;
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
-      background: #131d31;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      border: 1px solid #233554;
+      background: var(--card-bg);
+      padding: 0.85rem 1.5rem;
+      border-radius: 4px;
+      border: 2px solid var(--border-navy);
+      box-shadow: 3px 4px 0px rgba(27, 42, 68, 0.15);
+      width: 100%;
     }
+
     .btn {
-      background: #ef4444;
-      color: white;
-      border: none;
+      background: var(--accent-red);
+      color: #FFFFFF;
+      border: 1.5px solid var(--border-navy);
       padding: 0.6rem 1.2rem;
-      border-radius: 6px;
+      border-radius: 4px;
       font-weight: 700;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      box-shadow: 2px 2px 0px rgba(27, 42, 68, 0.2);
+      transition: all 0.15s ease;
     }
+
+    .btn:hover {
+      background: var(--accent-red-hover);
+      transform: translateY(-1px);
+    }
+
     .btn.sec {
-      background: #1e293b;
-      border: 1px solid #233554;
-      color: #f1f5f9;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-navy);
+      color: var(--ink-navy);
     }
+
+    .btn.sec:hover {
+      background: #F3EDE0;
+    }
+
     .slider-wrap {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      font-family: 'Fira Code', monospace;
-      font-size: 0.8rem;
+      gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink-navy);
+      background: #FFFFFF;
+      padding: 0.4rem 0.8rem;
+      border: 1.5px solid var(--border-navy);
+      border-radius: 4px;
+    }
+
+    .slider-wrap input[type="range"] {
+      width: 140px;
+      accent-color: var(--accent-red);
+      cursor: pointer;
+    }
+
+    .badge-percent {
+      color: var(--accent-red);
+      min-width: 42px;
+      text-align: right;
     }
   </style>
 </head>
 <body>
+
   <header>
     <div>
-      <div class="brand">COEP TECHNOLOGICAL UNIVERSITY · LASER LAB</div>
-      <div class="title">3D Augmented Reality Apparatus Viewport</div>
+      <div class="brand">COEP TECHNOLOGICAL UNIVERSITY · DEPARTMENT OF MECHANICAL ENGINEERING</div>
+      <div class="title">3D Augmented Reality Apparatus Viewport & Simulator</div>
     </div>
-    <a href="index.html" class="back-btn">← Web Brochure</a>
+    <a href="index.html" class="back-btn">← Back to Technical Brochure</a>
   </header>
 
   <div class="ar-view-container">
-    <canvas id="arCanvas"></canvas>
+    <div class="canvas-card">
+      <div id="arThreeCanvas"></div>
+      <div class="viewport-overlay" id="arOverlay">
+        SYSTEM: Nd:YAG 4-AXIS GANTRY · DRAG TO ORBIT · SCROLL TO ZOOM
+      </div>
+    </div>
 
     <div class="controls-bar">
-      <button class="btn sec" id="toggleAppBtn" onclick="toggleApp()">Switch: Fiber Laser</button>
+      <button class="btn sec" id="toggleAppBtn" onclick="toggleApp()">Switch: Fiber Laser System</button>
+
       <div class="slider-wrap">
-        <label>Explode View:</label>
-        <input type="range" id="expSlider" min="0" max="100" value="30" oninput="updateExp(this.value)" style="accent-color: #ef4444;">
-        <span id="expText">30%</span>
+        <label>Explode Assembly:</label>
+        <input type="range" id="expSlider" min="0" max="100" value="0" oninput="updateExp(this.value)">
+        <span id="expText" class="badge-percent">0%</span>
       </div>
-      <button class="btn" onclick="launchAR()">Start WebXR Session</button>
+
+      <button class="btn" onclick="launchAR()">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="vertical-align: middle; margin-right: 4px;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Start WebXR AR Session
+      </button>
     </div>
   </div>
 
   <script>
     let appMode = 'ndyag';
-    let expVal = 30;
-    const canvas = document.getElementById('arCanvas');
-    const ctx = canvas.getContext('2d');
-    let rot = 0;
+    let explodeVal = 0;
+    let scene, camera, renderer, controls;
+    let ndyagGroup, fiberGroup;
+    let ndyagParts = {}, fiberParts = {};
 
-    function resize() {
-      canvas.width = canvas.clientWidth * window.devicePixelRatio;
-      canvas.height = canvas.clientHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    function initARViewer() {
+      const container = document.getElementById('arThreeCanvas');
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xFFFFFF);
+
+      camera = new THREE.PerspectiveCamera(40, w / h, 1, 2000);
+      camera.position.set(150, 100, 180);
+
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(w, h);
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      container.appendChild(renderer.domElement);
+
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.maxPolarAngle = Math.PI / 2 + 0.05;
+      controls.target.set(0, 15, 0);
+
+      // Lights
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
+      scene.add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0xfff8ee, 0.95);
+      dirLight.position.set(120, 200, 100);
+      dirLight.castShadow = true;
+      scene.add(dirLight);
+
+      const fillLight = new THREE.DirectionalLight(0xebf4ff, 0.5);
+      fillLight.position.set(-120, 100, -80);
+      scene.add(fillLight);
+
+      // Ground Plane & Grid
+      const groundMat = new THREE.ShadowMaterial({ opacity: 0.15 });
+      const groundPlane = new THREE.Mesh(new THREE.PlaneGeometry(600, 600), groundMat);
+      groundPlane.rotation.x = -Math.PI / 2;
+      groundPlane.position.y = -20;
+      groundPlane.receiveShadow = true;
+      scene.add(groundPlane);
+
+      const grid = new THREE.GridHelper(260, 26, 0x1B2A44, 0xD4CEBF);
+      grid.position.y = -19.9;
+      scene.add(grid);
+
+      // Build Apparatus Models
+      buildARModels();
+
+      window.addEventListener('resize', onResize);
+      animate();
     }
-    window.addEventListener('resize', resize);
+
+    function onResize() {
+      const container = document.getElementById('arThreeCanvas');
+      if (!container || !renderer || !camera) return;
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    }
+
+    function buildARModels() {
+      const matNavy = new THREE.MeshStandardMaterial({ color: 0x1B2A44, roughness: 0.35, metalness: 0.5 });
+      const matCast = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.5, metalness: 0.6 });
+      const matSteel = new THREE.MeshStandardMaterial({ color: 0xCBD5E1, roughness: 0.2, metalness: 0.9 });
+      const matGold = new THREE.MeshStandardMaterial({ color: 0xD97706, roughness: 0.2, metalness: 0.85 });
+      const matCrystal = new THREE.MeshPhysicalMaterial({ color: 0xE11D48, transmission: 0.8, roughness: 0.1, transparent: true, opacity: 0.9 });
+      const matYellow = new THREE.MeshStandardMaterial({ color: 0xFACC15, roughness: 0.4 });
+
+      function addEdges(mesh) {
+        const edges = new THREE.EdgesGeometry(mesh.geometry, 25);
+        mesh.add(new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x1B2A44 })));
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+      }
+
+      // Nd:YAG Group
+      ndyagGroup = new THREE.Group();
+      scene.add(ndyagGroup);
+
+      // Bed
+      const bed = new THREE.Mesh(new THREE.BoxGeometry(120, 14, 85), matNavy);
+      bed.position.set(0, -7, 0);
+      addEdges(bed);
+      ndyagGroup.add(bed);
+
+      // Table & Rails
+      const tbl = new THREE.Mesh(new THREE.BoxGeometry(75, 4, 50), matSteel);
+      tbl.position.set(0, 4, 0);
+      addEdges(tbl);
+      ndyagGroup.add(tbl);
+
+      // Gantry uprights & bridge
+      const gBridge = new THREE.Group();
+      const u1 = new THREE.Mesh(new THREE.BoxGeometry(10, 48, 14), matCast);
+      u1.position.set(-42, 24, 0); addEdges(u1); gBridge.add(u1);
+      const u2 = new THREE.Mesh(new THREE.BoxGeometry(10, 48, 14), matCast);
+      u2.position.set(42, 24, 0); addEdges(u2); gBridge.add(u2);
+      const br = new THREE.Mesh(new THREE.BoxGeometry(94, 10, 14), matNavy);
+      br.position.set(0, 44, 0); addEdges(br); gBridge.add(br);
+      ndyagGroup.add(gBridge);
+      ndyagParts.bridge = { group: gBridge, home: new THREE.Vector3(0, 0, 0), explode: new THREE.Vector3(0, 20, 0) };
+
+      // Resonator
+      const gRes = new THREE.Group();
+      const cav = new THREE.Mesh(new THREE.BoxGeometry(40, 12, 14), matNavy); addEdges(cav); gRes.add(cav);
+      const rod = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.6, 38, 16), matCrystal);
+      rod.rotation.z = Math.PI / 2; gRes.add(rod);
+      gRes.position.set(0, 48, 0);
+      ndyagGroup.add(gRes);
+      ndyagParts.res = { group: gRes, home: new THREE.Vector3(0, 48, 0), explode: new THREE.Vector3(0, 35, 20) };
+
+      // Cutting Head
+      const gHead = new THREE.Group();
+      const hCyl = new THREE.Mesh(new THREE.CylinderGeometry(4.5, 4.5, 20, 20), matCast); addEdges(hCyl); gHead.add(hCyl);
+      const cone = new THREE.Mesh(new THREE.ConeGeometry(4.5, 8, 20), matGold);
+      cone.position.set(0, -12, 0); cone.rotation.x = Math.PI; addEdges(cone); gHead.add(cone);
+      gHead.position.set(42, 24, 0);
+      ndyagGroup.add(gHead);
+      ndyagParts.head = { group: gHead, home: new THREE.Vector3(42, 24, 0), explode: new THREE.Vector3(25, -20, 0) };
+
+      // Fiber Group
+      fiberGroup = new THREE.Group();
+      scene.add(fiberGroup);
+
+      // Fiber Bed
+      const fBed = new THREE.Mesh(new THREE.BoxGeometry(90, 8, 70), matNavy);
+      fBed.position.set(20, -12, 0); addEdges(fBed); fiberGroup.add(fBed);
+
+      const fGrid = new THREE.Mesh(new THREE.BoxGeometry(80, 2, 60), matSteel);
+      fGrid.position.set(20, -7, 0); addEdges(fGrid); fiberGroup.add(fGrid);
+
+      // Galvo Head & F-Theta
+      const gGalvo = new THREE.Group();
+      const gBox = new THREE.Mesh(new THREE.BoxGeometry(22, 22, 22), matNavy); addEdges(gBox); gGalvo.add(gBox);
+      const fTheta = new THREE.Mesh(new THREE.CylinderGeometry(9, 10, 8, 24), matCast);
+      fTheta.position.set(0, -14, 0); addEdges(fTheta); gGalvo.add(fTheta);
+      gGalvo.position.set(20, 22, 0);
+      fiberGroup.add(gGalvo);
+      fiberParts.galvo = { group: gGalvo, home: new THREE.Vector3(20, 22, 0), explode: new THREE.Vector3(15, 25, 0) };
+
+      // Power Rack
+      const gRack = new THREE.Group();
+      const rBox = new THREE.Mesh(new THREE.BoxGeometry(32, 70, 28), matNavy); addEdges(rBox); gRack.add(rBox);
+      gRack.position.set(-60, 18, 0);
+      fiberGroup.add(gRack);
+      fiberParts.rack = { group: gRack, home: new THREE.Vector3(-60, 18, 0), explode: new THREE.Vector3(-30, 0, -15) };
+
+      // Yellow Cable
+      const curve = new THREE.QuadraticBezierCurve3(
+        new THREE.Vector3(-45, 36, 0),
+        new THREE.Vector3(-10, 60, 10),
+        new THREE.Vector3(20, 38, 0)
+      );
+      const qCable = new THREE.Mesh(new THREE.TubeGeometry(curve, 24, 2, 12, false), matYellow);
+      fiberGroup.add(qCable);
+
+      fiberGroup.visible = false;
+    }
 
     function toggleApp() {
       appMode = appMode === 'ndyag' ? 'fiber' : 'ndyag';
+      ndyagGroup.visible = (appMode === 'ndyag');
+      fiberGroup.visible = (appMode === 'fiber');
+
       document.getElementById('toggleAppBtn').innerText = appMode === 'ndyag' 
-        ? "Switch: Fiber Laser" 
-        : "Switch: Nd:YAG Gantry";
+        ? "Switch: Fiber Laser System" 
+        : "Switch: Nd:YAG 4-Axis Gantry";
+
+      document.getElementById('arOverlay').innerText = appMode === 'ndyag'
+        ? "SYSTEM: Nd:YAG 4-AXIS GANTRY · DRAG TO ORBIT · SCROLL TO ZOOM"
+        : "SYSTEM: HIGH-POWER FIBER LASER · DRAG TO ORBIT · SCROLL TO ZOOM";
+
+      updateExp(explodeVal);
     }
 
     function updateExp(v) {
-      expVal = parseInt(v);
+      explodeVal = parseInt(v);
       document.getElementById('expText').innerText = v + '%';
+      const factor = explodeVal / 100.0;
+
+      const parts = appMode === 'ndyag' ? ndyagParts : fiberParts;
+      for (let k in parts) {
+        const item = parts[k];
+        item.group.position.copy(item.home).addScaledVector(item.explode, factor);
+      }
     }
 
     function launchAR() {
-      alert("Opening WebXR Camera Session...\nEnsure flat workshop table lighting.");
+      if (navigator.xr) {
+        navigator.xr.isSessionSupported('immersive-ar').then(supported => {
+          if (supported) {
+            alert("WebXR AR session supported! Initializing camera surface anchor...");
+          } else {
+            alert("WebXR AR hardware passthrough requires Chrome on ARCore compatible mobile device. Switching to full 3D interactive viewport.");
+          }
+        });
+      } else {
+        alert("Launch AR: Point your mobile camera at a flat surface or desk to inspect 1:1 scale model.\n(Compatible with Android ARCore & iOS QuickLook)");
+      }
     }
 
-    function render() {
-      const w = canvas.width / window.devicePixelRatio;
-      const h = canvas.height / window.devicePixelRatio;
-      ctx.clearRect(0, 0, w, h);
-
-      rot += 0.005;
-
-      ctx.save();
-      ctx.translate(w / 2, h / 2 + 20);
-
-      // Simple rotating preview
-      ctx.fillStyle = '#334155';
-      ctx.fillRect(-120, 60, 240, 25); // base
-
-      // Gantry uprights
-      const offset = expVal * 0.8;
-      ctx.fillStyle = '#1e293b';
-      ctx.fillRect(-90, -30 - offset * 0.4, 25, 90);
-      ctx.fillRect(65, -30 - offset * 0.4, 25, 90);
-      ctx.fillStyle = '#475569';
-      ctx.fillRect(-95, -45 - offset * 0.5, 190, 20);
-
-      // Resonator
-      ctx.fillStyle = appMode === 'ndyag' ? '#1e3a8a' : '#0891b2';
-      ctx.fillRect(-60, -85 - offset, 120, 35);
-      ctx.fillStyle = 'white';
-      ctx.font = '10px monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText(appMode === 'ndyag' ? "Nd:YAG RESONATOR" : "FIBER SCAN HEAD", 0, -65 - offset);
-
-      // Beam
-      ctx.strokeStyle = '#ef4444';
-      ctx.lineWidth = 2.5;
-      ctx.beginPath();
-      ctx.moveTo(0, -50 - offset);
-      ctx.lineTo(0, 60);
-      ctx.stroke();
-
-      // Spark
-      ctx.fillStyle = '#f59e0b';
-      ctx.beginPath();
-      ctx.arc(0, 60, 6 + Math.sin(Date.now() * 0.02) * 2, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.restore();
-      requestAnimationFrame(render);
+    function animate() {
+      requestAnimationFrame(animate);
+      if (controls) controls.update();
+      if (renderer && scene && camera) {
+        renderer.render(scene, camera);
+      }
     }
 
-    window.onload = () => {
-      resize();
-      render();
-    };
+    window.addEventListener('DOMContentLoaded', () => {
+      initARViewer();
+    });
   </script>
 </body>
 </html>

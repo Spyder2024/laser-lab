@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Deep Blueprint Navy Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="#1B2A44" stroke="#D13F29" stroke-width="2.5"/>
+  
+  <!-- Precision Optical Reticle Ring -->
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#1590B9" stroke-width="1" stroke-dasharray="3 2" opacity="0.8"/>
+  <line x1="10" y1="32" x2="16" y2="32" stroke="#1590B9" stroke-width="1.2"/>
+  <line x1="48" y1="32" x2="54" y2="32" stroke="#1590B9" stroke-width="1.2"/>
+
+  <!-- Upper Cutting Head Body (Machined Steel) -->
+  <polygon points="22,12 42,12 39,24 25,24" fill="#CBD5E1" stroke="#1B2A44" stroke-width="1"/>
+  
+  <!-- Golden Brass Supersonic Laval Nozzle Cone -->
+  <polygon points="25,24 39,24 35,35 29,35" fill="#F59E0B" stroke="#D97706" stroke-width="0.8"/>
+  <rect x="29" y="35" width="6" height="2" fill="#D97706"/>
+
+  <!-- High-Energy Coherent Red Laser Beam -->
+  <line x1="32" y1="37" x2="32" y2="49" stroke="#FF1E00" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="32" y1="37" x2="32" y2="49" stroke="#FFFFFF" stroke-width="0.8" stroke-linecap="round"/>
+
+  <!-- Plasma Focal Spark / Optical Diffraction Star at Kerf Datum -->
+  <polygon points="32,44 33.5,48.5 38,49 33.5,50.5 32,55 30.5,50.5 26,49 30.5,48.5" fill="#FFD166" stroke="#FFFFFF" stroke-width="0.6"/>
+  <circle cx="32" cy="49" r="1.5" fill="#FFFFFF"/>
+</svg>

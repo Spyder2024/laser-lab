@@ -1466,7 +1466,7 @@ def build_sheet_4(c):
     c.drawString(rx1, prev_y - 38, "OR TYPE")
     c.setFont('IBMPlexMono-Bold', 10.5)
     c.setFillColor(INK_NAVY)
-    c.drawString(rx1, prev_y - 52, "coep-laser-lab.github.io/ar")
+    c.drawString(rx1, prev_y - 52, "spyder2024.github.io/laser-lab/ar.html")
 
 
     # ------------------ CODE 2: WEB BROCHURE & SIMULATOR ------------------
@@ -1565,7 +1565,7 @@ def build_sheet_4(c):
     c.drawString(rx2, prev_y2 - 38, "OR TYPE")
     c.setFont('IBMPlexMono-Bold', 10.5)
     c.setFillColor(INK_NAVY)
-    c.drawString(rx2, prev_y2 - 52, "coep-laser-lab.github.io")
+    c.drawString(rx2, prev_y2 - 52, "spyder2024.github.io/laser-lab")
 
 
     # ------------------ BOTTOM 3 DEFINITION CARDS (y = 96 to 182, ZERO OVERLAP) ------------------

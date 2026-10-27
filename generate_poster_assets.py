@@ -26,21 +26,21 @@ def generate_qr_codes():
     print("Generating QR codes...")
     # QR Code for AR Explorer
     qr_ar = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=12, border=2)
-    qr_ar.add_data('https://coep-laser-lab.github.io/ar')
+    qr_ar.add_data('https://spyder2024.github.io/laser-lab/ar.html')
     qr_ar.make(fit=True)
     img_ar = qr_ar.make_image(fill_color=ACCENT_RED, back_color=BG_COLOR).convert('RGBA')
     img_ar.save('qr_code_ar.png')
 
     # QR Code for Web Brochure & Simulator
     qr_web = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=12, border=2)
-    qr_web.add_data('https://coep-laser-lab.github.io')
+    qr_web.add_data('https://spyder2024.github.io/laser-lab/index.html')
     qr_web.make(fit=True)
     img_web = qr_web.make_image(fill_color=INK_DARK, back_color=BG_COLOR).convert('RGBA')
     img_web.save('qr_code_web.png')
 
     # Mini QR code for headers
     qr_mini = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_M, box_size=8, border=1)
-    qr_mini.add_data('https://coep-laser-lab.github.io')
+    qr_mini.add_data('https://spyder2024.github.io/laser-lab/index.html')
     qr_mini.make(fit=True)
     img_mini = qr_mini.make_image(fill_color=INK_DARK, back_color=BG_COLOR).convert('RGBA')
     img_mini.save('qr_code_mini.png')
@@ -459,7 +459,7 @@ def draw_sheet4_mockups():
     ax.add_patch(bar)
     for bx in [1.4, 1.8, 2.2]:
         ax.scatter([bx], [5.3], color='#A0AEC0', s=15)
-    ax.text(5, 5.3, "coep-laser-lab.github.io", color='#4A5568', fontsize=5.5, ha='center', va='center')
+    ax.text(5, 5.3, "spyder2024.github.io/laser-lab", color='#4A5568', fontsize=5.5, ha='center', va='center')
     # Interactive UI elements
     slider_bar = patches.Rectangle((2, 1.5), 6, 0.3, facecolor='#E2E8F0', edgecolor='none')
     ax.add_patch(slider_bar)
